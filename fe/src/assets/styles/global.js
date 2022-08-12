@@ -7,7 +7,7 @@ export default createGlobalStyle`
     box-sizing:border-box;
 
     font-size:16px;
-    font-family: sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 
   body{

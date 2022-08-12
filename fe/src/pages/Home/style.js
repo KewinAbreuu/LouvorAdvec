@@ -7,6 +7,10 @@ export const Header = styled.header`
   padding: 15px 0;
   margin-bottom: 8px;
 
+  .menu{
+    width: 25px;
+  }
+
   .title{
     margin: 0 auto;
   }
@@ -40,7 +44,6 @@ export const Welcomme = styled.div`
 
   p{
     font-size: 24px;
-    font-weight: 300;
     color:${({ theme }) => theme.colors.text.light}
   }
 `
