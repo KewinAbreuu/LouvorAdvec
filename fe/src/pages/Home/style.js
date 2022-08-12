@@ -39,6 +39,7 @@ export const Welcomme = styled.div`
   margin-top: 16px;
 
   p{
+    font-size: 24px;
     font-weight: 300;
     color:${({ theme }) => theme.colors.text.light}
   }
@@ -47,7 +48,6 @@ export const Welcomme = styled.div`
 export const Container = styled.div`
   display:flex;
   width: 100%;
-  /* height: 106px; */
   justify-content: center;
   margin-top: 16px;
 `

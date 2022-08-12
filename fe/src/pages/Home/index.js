@@ -4,8 +4,9 @@ import logo from '../../assets/images/logo.svg'
 import banner from '../../assets/images/banner.png'
 
 import Card from '../../components/Card'
-
-import { FaBeer } from 'react-icons/fa'
+import calendar from '../../assets/icons/calendario.svg'
+import lider from '../../assets/icons/lider.svg'
+import musica from '../../assets/icons/musica.svg'
 
 export default function Home () {
   return (
@@ -24,14 +25,13 @@ export default function Home () {
         <p>Kewin Abreu</p>
       </Welcomme>
       <Container>
-        <Card/>
-        <Card/>
-        <Card/>
+        <Card title="Liderança" icon={lider}/>
+        <Card title="Escalas" icon={calendar}/>
+        <Card title="Repertórios" icon={musica}/>
       </Container>
 
       <Container>
-        <Card icon={FaBeer}>
-        </Card>
+        <Card/>
         <Card/>
         <Card/>
       </Container>
