@@ -1,4 +1,4 @@
-import { Header, Banner, Welcomme, Container } from './style'
+import { Body, Header, Banner, Welcomme, Container } from './style'
 import logo from '../../assets/images/logo.svg'
 import banner from '../../assets/images/banner.png'
 import menu from '../../assets/icons/menu.svg'
@@ -21,6 +21,7 @@ export default function Home () {
         </div>
         <img src={logo}/>
       </Header>
+      <Body>
       <Banner>
         <img src={banner}/>
       </Banner>
@@ -39,6 +40,7 @@ export default function Home () {
         <Card title="Mídias" icon={cam}/>
         <Card title="Aulas" icon={aula}/>
       </Container>
+      </Body>
     </>
   )
 }

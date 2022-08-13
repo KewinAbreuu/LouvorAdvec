@@ -1,11 +1,18 @@
 import styled from 'styled-components'
+export const Body = styled.div`
+  padding: 0 10px;
 
+`
 export const Header = styled.header`
   display:flex;
   justify-content: center;
-  align-items: center;
-  padding: 15px 0;
+  align-items: flex-start;
+  padding: 32px 10px;
   margin-bottom: 8px;
+  height:175px;
+  background: linear-gradient(90deg, #31C96E 0%, #157C3F 80.73%);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 
   .menu{
     width: 25px;
@@ -27,9 +34,10 @@ export const Header = styled.header`
 
 export const Banner = styled.div`
   width: 100%;
-  height: 280px;
+  height: 220px;
   background: #cdcdcd;
   border-radius:20px;
+  margin-top: -80px;
 
   img{
     width:100%;
