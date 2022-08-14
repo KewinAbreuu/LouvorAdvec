@@ -2,8 +2,6 @@ import { Body, Header, Banner, Welcomme, Container } from './style'
 import logo from '../../assets/images/logo.svg'
 import banner from '../../assets/images/banner.png'
 import menu from '../../assets/icons/menu.svg'
-
-import Card from '../../components/Card'
 import calendar from '../../assets/icons/calendario.svg'
 import lider from '../../assets/icons/lider.svg'
 import musica from '../../assets/icons/musica.svg'
@@ -11,17 +9,23 @@ import comunicado from '../../assets/icons/comunicado.svg'
 import cam from '../../assets/icons/cam.svg'
 import aula from '../../assets/icons/aula.svg'
 
+import Card from '../../components/Card'
+import BottomBar from '../../components/BottomBar'
+
 export default function Home () {
   return (
     <>
       <Header>
-        <img src={menu} className="menu"/>
-        <div className='title'>
-         <h1>Advec Maceió</h1>
+        <div className='contMenu'>
+          <img src={menu} className="menu"/>
+          <div className='title'>
+             <h1>Advec Maceió</h1>
+          </div>
+          <img src={logo}/>
         </div>
-        <img src={logo}/>
       </Header>
       <Body>
+        <BottomBar/>
       <Banner>
         <img src={banner}/>
       </Banner>

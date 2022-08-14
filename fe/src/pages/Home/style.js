@@ -1,18 +1,26 @@
 import styled from 'styled-components'
 export const Body = styled.div`
   padding: 0 10px;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `
 export const Header = styled.header`
   display:flex;
-  justify-content: center;
   align-items: flex-start;
   padding: 32px 10px;
   margin-bottom: 8px;
   height:175px;
-  background: linear-gradient(90deg, #31C96E 0%, #157C3F 80.73%);
+  background: linear-gradient(90deg, #11A34B 0%, #157C3F 80.73%);
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+
+  .contMenu{
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   .menu{
     width: 25px;

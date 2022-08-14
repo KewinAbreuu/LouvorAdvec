@@ -5,7 +5,7 @@ export default function Card ({ title, icon }) {
   return (
     <Container>
       <img src={icon}/>
-      <strong>{title}</strong>
+      <p>{title}</p>
     </Container>
   )
 }

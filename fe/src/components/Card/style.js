@@ -27,7 +27,8 @@ export const Container = styled.div`
 
   }
 
-  strong{
+  p{
+    font-size: 11px;
     margin-top:16px;
     color: ${({ theme }) => theme.colors.text.light}
   }
@@ -42,10 +43,6 @@ export const Container = styled.div`
 
   &:active{
     background: #2d2d2d;
-  }
-
-  ::selection{
-    outline: none;
   }
 
 `
