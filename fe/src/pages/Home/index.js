@@ -1,3 +1,6 @@
+import { useContext } from 'react'
+import { AuthContext } from '../../contexts/auth'
+
 import { Body, Header, Banner, Welcomme, Container } from './style'
 import logo from '../../assets/images/logo.svg'
 import banner from '../../assets/images/banner.png'
@@ -13,6 +16,8 @@ import Card from '../../components/Card'
 import BottomBar from '../../components/BottomBar'
 
 export default function Home () {
+  const { signOut, user } = useContext(AuthContext)
+
   return (
     <>
       <Header>
@@ -31,15 +36,18 @@ export default function Home () {
       </Banner>
       <Welcomme>
         <p>Olá,</p>
-        <p>Kewin Abreu</p>
+        <p>{user.nome}</p>
       </Welcomme>
+
+      <button onClick={signOut}>Sair</button>
+
       <Container>
         <Card title="Liderança" icon={lider}/>
         <Card title="Escalas" icon={calendar}/>
         <Card title="Repertórios" icon={musica}/>
       </Container>
 
-      <Container>
+      <Container style={{ marginBottom: '150px' }}>
         <Card title="Comunicados" icon={comunicado}/>
         <Card title="Mídias" icon={cam}/>
         <Card title="Aulas" icon={aula}/>
