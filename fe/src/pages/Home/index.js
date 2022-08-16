@@ -24,7 +24,7 @@ export default function Home () {
         <div className='contMenu'>
           <img src={menu} className="menu"/>
           <div className='title'>
-             <h1>Advec Maceió</h1>
+             <h1>Louvor Advec</h1>
           </div>
           <img src={logo}/>
         </div>
@@ -42,8 +42,8 @@ export default function Home () {
       <button onClick={signOut}>Sair</button>
 
       <Container>
-        <Card title="Liderança" icon={lider}/>
-        <Card title="Escalas" icon={calendar}/>
+        <Card title="Liderança" icon={lider} />
+        <Card title="Escalas" icon={calendar} press='escalas' />
         <Card title="Repertórios" icon={musica}/>
       </Container>
 

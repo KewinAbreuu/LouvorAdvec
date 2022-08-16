@@ -6,7 +6,9 @@ import Btn from '../../components/Btn'
 export default function SelectLogin () {
   return (
     <Container>
+      <div style={{ marginTop: 100 }}>
       <HeaderLogo/>
+      </div>
       <div className='groupBtn'>
         <div className='containerBtn'>
           <Btn endPoint='signIn' name='Entrar'/>

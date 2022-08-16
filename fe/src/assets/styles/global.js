@@ -8,6 +8,10 @@ export default createGlobalStyle`
 
     font-size:16px;
     font-family: 'Inter', sans-serif;
+
+    a{
+      text-decoration: none;
+    }
   }
 
   body{

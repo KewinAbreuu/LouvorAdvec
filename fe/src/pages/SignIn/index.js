@@ -11,7 +11,7 @@ export default function SignIn () {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const { signIn } = useContext(AuthContext)
+  const { signIn, loadinAuth } = useContext(AuthContext)
 
   function handleSubmit (e) {
     e.preventDefault()
@@ -24,14 +24,12 @@ export default function SignIn () {
   return (
     <Container>
       <HeaderLogo/>
-      <h1>PAGINA DE LOGIN</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} >
         <Input type='text' placeholder='Email' onChange={(e) => setEmail(e.target.value)}/>
         <Input type='password' placeholder='Senha' onChange={(e) => setPassword(e.target.value)}/>
-        <button type="submit">Acessar</button>
 
-        <h1>{email}</h1>
-        <h1>{password}</h1>
+      <button type="submit" className='btnAuth'>{!loadinAuth ? 'Acessar' : 'Carregando...'}</button>
+
       </form>
 
       <Link to='/signUp'>Criar uma conta</Link>

@@ -1,9 +1,9 @@
 import { Container } from './style'
 
-// import { Link } from 'react-router-dom'
-
 import HeaderLogo from '../../components/Logo'
 import { useEffect, useState } from 'react'
+
+import companys from '../../companysConfig'
 
 export default function SelectCompany () {
   const [valor, setValor] = useState('')
@@ -24,17 +24,23 @@ export default function SelectCompany () {
 
   return (
     <Container>
+      <div style={{ marginTop: 100 }}>
       <HeaderLogo/>
-       <select onChange={(e) => setValor(e.target.value)}>
+      </div>
+
+      <select onChange={(e) => setValor(e.target.value)}>
         <option value="" disabled selected>Selecione uma Advec</option>
-        <option value='123'>Advec Maceió</option>
-        <option value='1234'>Advec Rio de janeiro</option>
+        {companys.map((item) => {
+          return (
+            <option key="" value={item.value}>{item.label}</option>
+          )
+        })}
       </select>
 
-      {!controlBtn && <button onClick={handlleValueCompanyId} className="btnSelect">{valor === '' ? '...' : 'Pressione para confirmar'}</button>}
+      {!controlBtn && <button onClick={handlleValueCompanyId} className="btnSelect1">{valor === '' ? '...' : 'Pressione para confirmar'}</button>}
 
         {valor !== '' && controlBtn
-          ? <a href="/selectLogin" className='btnSelect'>Continuar</a>
+          ? <a href="/selectLogin" className='btnSelect2'>Continuar</a>
           : <div></div>
         }
     </Container>
