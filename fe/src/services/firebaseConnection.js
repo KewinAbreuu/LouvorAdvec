@@ -2,11 +2,6 @@ import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/firestore'
 
-/* CODES COMPANYS
-  123= loginsGeral
-  352847= Life
-*/
-
 // company firebase config object
 const companysConfig = {
   123: {
@@ -17,17 +12,18 @@ const companysConfig = {
     messagingSenderId: '339701795039',
     appId: '1:339701795039:web:7967bc9508cbeabdcbc16a'
   },
-  352847: {
-    apiKey: 'AIzaSyAl82OCwHzXeeI9H5pF1nBTGTBS3k2rktQ',
-    authDomain: 'kontrolllife-b4a16.firebaseapp.com',
-    projectId: 'kontrolllife-b4a16',
-    storageBucket: 'kontrolllife-b4a16.appspot.com',
-    messagingSenderId: '412857269676',
-    appId: '1:412857269676:web:bcdf4d4f5aaff2c3a04e09'
+  1234: {
+    apiKey: 'AIzaSyB8WpaHjzv2WLdM812retS2F5Dk0hSYgCM',
+    authDomain: 'appportaria-b0a1b.firebaseapp.com',
+    databaseURL: 'https://appportaria-b0a1b-default-rtdb.firebaseio.com',
+    projectId: 'appportaria-b0a1b',
+    storageBucket: 'appportaria-b0a1b.appspot.com',
+    messagingSenderId: '43910768183',
+    appId: '1:43910768183:web:33c4d28029359f570c41b2'
   }
 }
-// const companyId = localStorage.getItem('CodigoEmpresa')
-const companyId = 123
+const companyId = localStorage.getItem('companyId')
+// const comp = JSON.parse(companyId)
 
 const config = companysConfig[companyId]
 

@@ -34,7 +34,7 @@ export default function SignIn () {
         <h1>{password}</h1>
       </form>
 
-      <Link to='/signIn'>Criar uma conta</Link>
+      <Link to='/signUp'>Criar uma conta</Link>
 
     </Container>
   )

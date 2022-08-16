@@ -10,6 +10,23 @@ export const Container = styled.div`
 
   background: linear-gradient(180deg, #11A14B 0%, #157C3E 76.56%);
 
+  .btnSelect{
+    width: 95%;
+    max-width: 450px;
+    height: 56px;
+    background-color: #fff;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#222;
+    position: absolute;
+    bottom: 24px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+  }
+
   select{
     width: 100%;
     height: 45px;
