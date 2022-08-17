@@ -34,7 +34,7 @@ export const Container = styled.div`
   .info{
     display:flex;
     flex-direction: column;
-    width: 70%;
+    width: 80%;
     height: 100%;
     padding: 8px 0 0 20px;
     background: #4f4f4f;
@@ -46,11 +46,13 @@ export const Container = styled.div`
        color:#fff;
     }
     p{
+      font-size: 14px;
       color:#fff;
       margin-bottom: 12px;
     }
     h2{
-      color:#fff;
+      font-size: 14px;
+      color:#52BA7C;
     }
   }
 

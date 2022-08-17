@@ -7,6 +7,7 @@ import SignIn from '../pages/SignIn'
 import SignUp from '../pages/SignUp'
 import Home from '../pages/Home'
 import Escalas from '../pages/Escalas'
+import AddEscalas from '../pages/AddEscalas'
 
 export default function Routes () {
   return (
@@ -17,6 +18,7 @@ export default function Routes () {
       <Route exact path="/signUp" component={SignUp} />
       <Route exact path="/home" component={Home} isPrivate />
       <Route exact path="/escalas" component={Escalas} isPrivate />
+      <Route exact path="/addEscalas" component={AddEscalas} isPrivate />
     </Switch>
   )
 }

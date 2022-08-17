@@ -5,6 +5,7 @@ import { Body, Header, Banner, Welcomme, Container } from './style'
 import logo from '../../assets/images/logo.svg'
 import banner from '../../assets/images/banner.png'
 import menu from '../../assets/icons/menu.svg'
+import saida from '../../assets/icons/saida.svg'
 import calendar from '../../assets/icons/calendario.svg'
 import lider from '../../assets/icons/lider.svg'
 import musica from '../../assets/icons/musica.svg'
@@ -26,7 +27,7 @@ export default function Home () {
           <div className='title'>
              <h1>Louvor Advec</h1>
           </div>
-          <img src={logo}/>
+          <img src={logo} onClick={signOut}/>
         </div>
       </Header>
       <Body>
@@ -39,7 +40,10 @@ export default function Home () {
         <p>{user.nome}</p>
       </Welcomme>
 
-      <button onClick={signOut}>Sair</button>
+      <div className="sair">
+        <h1>Sair</h1>
+        <img src={saida} onClick={signOut} style={{ width: 24 }}/>
+      </div>
 
       <Container>
         <Card title="Liderança" icon={lider} />

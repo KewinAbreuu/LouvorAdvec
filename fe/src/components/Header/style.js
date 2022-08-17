@@ -23,6 +23,6 @@ export const Container = styled.header`
 
   h1{
     color: #fff;
-    margin:0 34%;
+    margin:0 24px;
   }
 `

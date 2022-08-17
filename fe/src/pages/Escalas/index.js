@@ -4,12 +4,14 @@ import { Input } from '../../components/Inputs'
 import BtnFlutter from '../../components/BtnFlutter'
 import CardEscalas from '../../components/CardEscalas'
 
+import add from '../../assets/icons/add.svg'
+
 export default function Escalas () {
   return (
     <>
       <Container>
       <Header press='home' name='Escalas'/>
-        <div style={{ marginTop: 16 }}>
+        <div>
           <Input type='text' placeholder='Buscar'/>
         </div>
         <div style={{ marginTop: 16 }}>
@@ -17,7 +19,7 @@ export default function Escalas () {
          <CardEscalas/>
          <CardEscalas/>
         </div>
-          <BtnFlutter/>
+          <BtnFlutter press="addEscalas" icon={add}/>
       </Container>
     </>
   )

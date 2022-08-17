@@ -41,6 +41,14 @@ export const Container = styled.div`
     }
   }
 
+  &:focus{
+    background: #5e5e5e;
+
+    img{
+      transform: scale(1.2);
+    }
+  }
+
   &:active{
     background: #2d2d2d;
   }

@@ -17,7 +17,18 @@ export const Container = styled.div`
   bottom: 24px;
   right: 16px;
 
+  cursor:pointer;
+  transition: all ease-in-out 0.2s;
+
   img{
     width: 24px;
+    transition: all ease-in-out 0.2s;
   }
+
+  &:hover{
+    img{
+      transform: scale(1.2);
+    }
+    transform: scale(1.1);
+    }
 `

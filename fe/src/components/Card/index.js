@@ -6,7 +6,9 @@ export default function Card ({ title, icon, press }) {
   const history = useHistory()
 
   function handleClick () {
-    history.push(`/${press}`)
+    setTimeout(() => {
+      history.push(`/${press}`)
+    }, '300')
   }
 
   return (
