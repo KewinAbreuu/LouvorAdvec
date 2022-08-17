@@ -23,7 +23,6 @@ const companysConfig = {
   }
 }
 const companyId = localStorage.getItem('companyId')
-// const comp = JSON.parse(companyId)
 
 const config = companysConfig[companyId]
 
