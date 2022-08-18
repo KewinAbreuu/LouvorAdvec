@@ -16,21 +16,22 @@ export const Container = styled.div`
   }
 
   input{
-  background: #d1d1d1;
+  background: #4f4f4f;
   width: 100%;
   max-width: 500px;
   height: 48px;
 
   border: none;
-  border-radius:20px;
+  border-radius:10px;
   padding: 0 50px;
+  color:#fff;
 
   &+&{
     margin-top: 8px;
   }
   transition: all ease-in-out 0.2s;
   &:focus{
-    background: #fff;
+    background: #3f3f3f;
     outline: none;
   }
 }

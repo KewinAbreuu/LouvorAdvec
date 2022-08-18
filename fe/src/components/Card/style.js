@@ -12,6 +12,8 @@ export const Container = styled.div`
   border-radius: 20px;
   transition: all ease-in-out 0.2s;
 
+
+
   user-select: none;
   cursor:pointer;
 

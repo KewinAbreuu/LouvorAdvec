@@ -8,7 +8,7 @@ export default function Card ({ title, icon, press }) {
   function handleClick () {
     setTimeout(() => {
       history.push(`/${press}`)
-    }, '300')
+    }, '200')
   }
 
   return (

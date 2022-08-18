@@ -6,7 +6,7 @@ export const Container = styled.div`
   padding: 0 16px;
 
   .title{
-    margin-top: 24px;
+    /* margin-top: 24px; */
   }
 
   h3{
@@ -41,13 +41,14 @@ export const ContObs = styled.div`
     width: 100%;
     height: 200px;
     padding: 0 16px;
-    background: #cdcdcd;
+    background: #4f4f4f;
     border:none;
     border-radius:20px;
+    color:#fff;
 
     &:focus{
       outline:none;
-      background: #fff;
+      background: #3f3f3f;
     }
   }
 `

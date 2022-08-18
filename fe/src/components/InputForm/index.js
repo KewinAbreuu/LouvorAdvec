@@ -1,11 +1,10 @@
 import { Container } from './style'
-import musica from '../../assets/icons/musica.svg'
 
-export default function InputForm ({ type, placeholder }) {
+export default function InputForm ({ type, placeholder, icon }) {
   return (
       <Container>
         <div>
-          <img src={musica}/>
+          <img src={icon}/>
           <input type={type} placeholder={placeholder}/>
         </div>
       </Container>

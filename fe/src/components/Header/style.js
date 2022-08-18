@@ -11,6 +11,8 @@ export const Container = styled.header`
   padding:0 8px;
   cursor: pointer;
 
+  margin-bottom: 24px;
+
   img{
     width: 32px;
     transition: all ease-in-out 0.2s;

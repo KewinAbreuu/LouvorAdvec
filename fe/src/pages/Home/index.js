@@ -27,6 +27,10 @@ export default function Home () {
           <div className='title'>
              <h1>Louvor Advec</h1>
           </div>
+                                                                    <div className="sair">
+                                                                      <h1>Sair</h1>
+                                                                      <img src={saida} onClick={signOut} style={{ width: 24 }}/>
+                                                                    </div>
           <img src={logo} onClick={signOut}/>
         </div>
       </Header>
@@ -39,11 +43,6 @@ export default function Home () {
         <p>Olá,</p>
         <p>{user.nome}</p>
       </Welcomme>
-
-      <div className="sair">
-        <h1>Sair</h1>
-        <img src={saida} onClick={signOut} style={{ width: 24 }}/>
-      </div>
 
       <Container>
         <Card title="Liderança" icon={lider} />
