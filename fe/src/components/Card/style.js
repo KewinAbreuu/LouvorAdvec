@@ -11,6 +11,8 @@ export const Container = styled.div`
   background: ${({ theme }) => theme.colors.primary.dark};
   border-radius: 20px;
   transition: all ease-in-out 0.2s;
+
+  user-select: none;
   cursor:pointer;
 
   -webkit-box-shadow: -1px 7px 15px -3px #111111;
@@ -24,7 +26,6 @@ export const Container = styled.div`
     width: 30px;
     fill: aliceblue;
     transition: all ease-in-out 0.2s;
-
   }
 
   p{

@@ -8,6 +8,7 @@ export default createGlobalStyle`
 
     font-size:16px;
     font-family: 'Inter', sans-serif;
+    user-select: none;
 
     a{
       text-decoration: none;
