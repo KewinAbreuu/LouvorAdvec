@@ -39,17 +39,17 @@ export const Container = styled.div`
   &:hover{
     background: #5e5e5e;
 
-    img{
+    /* img{
       transform: scale(1.2);
-    }
+    } */
   }
 
   &:focus{
     background: #5e5e5e;
 
-    img{
+    /* img{
       transform: scale(1.2);
-    }
+    } */
   }
 
   &:active{

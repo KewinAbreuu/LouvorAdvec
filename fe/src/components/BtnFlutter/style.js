@@ -26,9 +26,6 @@ export const Container = styled.div`
   }
 
   &:hover{
-    img{
-      transform: scale(1.2);
-    }
-    transform: scale(1.1);
-    }
+    background:#097736;
+  }
 `
