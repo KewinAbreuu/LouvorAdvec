@@ -8,6 +8,7 @@ import SignUp from '../pages/SignUp'
 import Home from '../pages/Home'
 import Escalas from '../pages/Escalas'
 import AddEscalas from '../pages/AddEscalas'
+import AddMusicas from '../pages/AddMusicas'
 
 export default function Routes () {
   return (
@@ -19,6 +20,7 @@ export default function Routes () {
       <Route exact path="/home" component={Home} isPrivate />
       <Route exact path="/escalas" component={Escalas} isPrivate />
       <Route exact path="/addEscalas" component={AddEscalas} isPrivate />
+      <Route exact path="/addMusicas" component={AddMusicas} isPrivate />
     </Switch>
   )
 }

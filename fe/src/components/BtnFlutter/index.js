@@ -3,7 +3,7 @@ import { Container } from './style'
 // import add from '../../assets/icons/add.svg'
 import { useHistory } from 'react-router-dom'
 
-export default function BtnFlutter ({ press, icon, action }) {
+export default function BtnFlutter ({ press, icon, action, deg }) {
   const history = useHistory()
 
   function handleClick () {
@@ -13,8 +13,8 @@ export default function BtnFlutter ({ press, icon, action }) {
   }
 
   return (
-    <Container onClick={action || handleClick }>
-      <img src={icon} />
+    <Container onClick={action || handleClick } deg={deg}>
+      <img src={icon}/>
     </Container>
   )
 }

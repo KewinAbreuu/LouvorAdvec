@@ -3,24 +3,25 @@ import Header from '../../components/Header'
 import Input from '../../components/InputForm'
 import BtnFlutter from '../../components/BtnFlutter'
 
-import ok from '../../assets/icons/ok.svg'
+import arrow from '../../assets/icons/arrow.svg'
 import titulo from '../../assets/icons/titulo.svg'
 import data from '../../assets/icons/data.svg'
 import hora from '../../assets/icons/hora.svg'
 
-export default function AddEscalas () {
-  function handdleAdd () {
-    setTimeout(() => {
-      alert('Salvou')
-    }, '300')
-  }
+import info from '../../assets/icons/info.svg'
 
+export default function AddEscalas () {
   return (
     <>
       <Container>
-        <BtnFlutter action={handdleAdd} icon={ok}/>
+        <BtnFlutter press='AddMusicas' icon={arrow} deg/>
 
        <Header press='escalas' name='Nova escala'/>
+
+        <div style={{ display: 'flex', alignItems: 'center', marginBottom: 24 }}>
+         <img src={info} style={{ marginRight: 8 }}/>
+         <p style={{ color: '#fff', fontWeight: 'bold' }}>Info</p>
+        </div>
 
        <div className='title'>
         <h3>Titulo:</h3>
@@ -49,7 +50,7 @@ export default function AddEscalas () {
         </select>
       </div>
 
-       <ContObs>
+      <ContObs>
         <h3>Observações:</h3>
         <input type='text' placeholder='Ex: Ensaio dia...'/>
        </ContObs>

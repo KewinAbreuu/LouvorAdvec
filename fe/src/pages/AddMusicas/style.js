@@ -5,12 +5,7 @@ export const Container = styled.div`
   max-width: 500px;
   padding: 0 16px;
 
-  .title{
-    /* margin-top: 24px; */
-  }
-
   h3{
-    /* font-weight: 300; */
     color:#fff;
     margin-bottom: 8px;
   }
@@ -33,23 +28,23 @@ export const Container = styled.div`
       }
     }
   }
-`
-export const ContObs = styled.div`
-  width: 100%;
-  margin-top: 16px;
 
-  input{
+  .contSelect2{
     width: 100%;
-    height: 200px;
-    padding: 0 16px;
-    background: #4f4f4f;
-    border:none;
-    border-radius:20px;
-    color:#fff;
+    margin-top: 24px;
 
-    &:focus{
-      outline:none;
-      background: #3f3f3f;
+    select{
+      width:100%;
+      height:48px;
+      background:#4f4f4f;
+      border:none;
+      border-radius:10px;
+      padding:8px;
+      color:#fff;
+
+      &:focus{
+        outline: none;
+      }
     }
   }
 `

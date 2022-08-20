@@ -13,7 +13,7 @@ export const Container = styled.div`
   border: none;
   border-radius:20px;
 
-  position: absolute;
+  position: fixed;
   bottom: 24px;
   right: 16px;
 
@@ -23,6 +23,10 @@ export const Container = styled.div`
   img{
     width: 24px;
     transition: all ease-in-out 0.2s;
+    transform: rotate(0deg);
+    ${({ deg }) => deg && `
+      transform: rotate(180deg);
+    `}
   }
 
   &:hover{
