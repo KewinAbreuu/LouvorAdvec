@@ -34,4 +34,58 @@ export const Container = styled.div`
       width: 100%;
       margin-bottom: 10px;
     }
+    .containerBtn2{
+      width: 100%;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .btnContinuar{
+    width: 95%;
+    max-width: 450px;
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff;
+    background: ${(props) => props.background};
+    border: none;
+    border-radius:20px;
+    text-decoration: none;
+
+    p{
+      color:#222;
+      color: ${(props) => props.color};
+      font-weight: 300;
+    }
+
+  }
+
+  .btnContinuar2{
+    width: 95%;
+    max-width: 450px;
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #52BA7C;
+    background: ${(props) => props.background};
+    border: none;
+    border-radius:20px;
+    text-decoration: none;
+    color:#fff;
+    cursor:pointer;
+
+    p{
+      color:#222;
+      color: ${(props) => props.color};
+      font-weight: 300;
+    }
+
+  }
 `

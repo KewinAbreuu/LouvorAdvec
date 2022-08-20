@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../contexts/auth'
 
 import { Container } from './style'
@@ -17,9 +17,9 @@ export default function SignUp () {
 
   function handleSubmit (e) {
     e.preventDefault()
-
+    const codAuthAdm = localStorage.getItem('codAuth')
     if (nome !== '' && email !== '' && password !== '' && codAuth !== '') {
-      if (codAuth === '251225') {
+      if (JSON.stringify(codAuth) === codAuthAdm) {
         signUp(email, password, nome)
       } else { alert('Código de autorização INVÁLIDO.') }
     } else { alert('Preencha todos os campos!') }
@@ -28,6 +28,7 @@ export default function SignUp () {
   return (
     <Container>
       <HeaderLogo/>
+
       <form onSubmit={handleSubmit} style={{ width: '100%' }}>
         <Input type='text' placeholder='Nome' onChange={(e) => setNome(e.target.value)}/>
         <Input type='text' placeholder='Email' onChange={(e) => setEmail(e.target.value)}/>
@@ -38,6 +39,6 @@ export default function SignUp () {
 
       <Link to='/signIn'>Já tenho uma conta</Link>
 
-    </Container>
+      </Container>
   )
 }
