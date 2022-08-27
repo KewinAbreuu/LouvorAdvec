@@ -52,4 +52,19 @@ export const ContObs = styled.div`
       background: #3f3f3f;
     }
   }
+
+  textarea{
+    width: 100%;
+    height: 200px;
+    padding: 20px 16px;
+    background: #4f4f4f;
+    border:none;
+    border-radius:20px;
+    color:#fff;
+
+    &:focus{
+      outline:none;
+      background: #3f3f3f;
+    }
+  }
 `

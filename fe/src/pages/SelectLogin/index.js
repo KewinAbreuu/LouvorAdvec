@@ -9,12 +9,6 @@ import { useEffect, useContext } from 'react'
 import { AuthContext } from '../../contexts/auth'
 
 export default function SelectLogin () {
-  const { loadPost, SaveLocalCodAuth } = useContext(AuthContext)
-
-  useEffect(() => {
-    loadPost()
-  }, [])
-
   return (
     <Container>
       <div style={{ marginTop: 100 }}>
@@ -24,7 +18,7 @@ export default function SelectLogin () {
         <div className='containerBtn'>
           <Btn endPoint='signIn' name='Entrar'/>
         </div>
-        <div className='containerBtn2' onClick={SaveLocalCodAuth}>
+        <div className='containerBtn2'>
           {/* <Btn endPoint='signUp' name='Cadastre-se' background='#52BA7C' color='#fff'/> */}
           <a href="/signUp" className='btnContinuar2'>Cadastre-se</a>
         </div>

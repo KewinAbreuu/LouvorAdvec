@@ -5,6 +5,8 @@ import BtnFlutter from '../../components/BtnFlutter'
 import ok from '../../assets/icons/ok.svg'
 import addMusicas from '../../assets/icons/addMusica.svg'
 import { useEffect, useState } from 'react'
+import firebase from '../../services/firebaseConnection'
+import { useHistory } from 'react-router-dom'
 
 export default function AddMusicas () {
   const [valor, setValor] = useState('')
@@ -13,10 +15,37 @@ export default function AddMusicas () {
   const [valor4, setValor4] = useState('')
   const [valor5, setValor5] = useState('')
 
-  function handdleAdd () {
-    setTimeout(() => {
-      alert('Salvou')
-    }, '300')
+  const history = useHistory()
+
+  function handlleEscalas () {
+    history.push('/escalas')
+  }
+
+  async function handdleAdd () {
+    const titulo = localStorage.getItem('titulo')
+    const hora = localStorage.getItem('hora')
+    const data = localStorage.getItem('data')
+    const obs = localStorage.getItem('obs')
+
+    await firebase.firestore().collection('escala')
+      .add({
+        Titulo: titulo,
+        Hora: hora,
+        Data: data,
+        Obs: obs,
+        M1: valor,
+        M2: valor2,
+        M3: valor3,
+        M4: valor4,
+        M5: valor5
+      })
+      .then(() => {
+        alert('Adicionada com Sucesso!')
+        handlleEscalas()
+      })
+      .cath((e) => {
+        alert(e)
+      })
   }
 
   return (

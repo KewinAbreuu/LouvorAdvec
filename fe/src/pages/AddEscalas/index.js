@@ -9,13 +9,27 @@ import data from '../../assets/icons/data.svg'
 import hora from '../../assets/icons/hora.svg'
 
 import info from '../../assets/icons/info.svg'
+import { useState } from 'react'
 
 export default function AddEscalas () {
+  const [valueTitulo, setValueTitulo] = useState('')
+  const [valueHora, setValueHora] = useState('')
+  const [valueData, setValueData] = useState('')
+  const [valueObs, setValueObs] = useState('')
+
+  function handlleAddLocalStorage () {
+    localStorage.setItem('titulo', valueTitulo)
+    localStorage.setItem('hora', valueHora)
+    localStorage.setItem('data', valueData)
+    localStorage.setItem('obs', valueObs)
+  }
+
   return (
     <>
       <Container>
-        <BtnFlutter press='AddMusicas' icon={arrow} deg/>
-
+        <div onClick={handlleAddLocalStorage}>
+        <BtnFlutter press='AddMusicas' icon={arrow} deg />
+        </div>
        <Header press='escalas' name='Nova escala'/>
 
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: 24 }}>
@@ -25,20 +39,20 @@ export default function AddEscalas () {
 
        <div className='title'>
         <h3>Titulo:</h3>
-        <Input type='text' placeholder='Ex: Culto de Jovens' icon={titulo}/>
+        <Input type='text' placeholder='Ex: Culto de Jovens' icon={titulo} onChange={(e) => setValueTitulo(e.target.value)}/>
        </div>
 
        <div style={{ width: '100%' }}>
 
         <div style={{ display: 'flex', marginTop: 32 }}>
           <div style={{ width: '60%', marginRight: 8 }}>
-            <h3>Data:</h3>
-            <Input type='text' placeholder='17/08/2022' icon={data} />
+            <h3>Data:{valueData}</h3>
+            <Input type='date' icon={data} onChange={(e) => setValueData(e.target.value)} />
           </div>
 
           <div style={{ width: '40%' }}>
           <h3>Hora:</h3>
-            <Input type='text' placeholder='19:30' icon={hora}/>
+            <Input type='time' icon={hora} onChange={(e) => setValueHora(e.target.value)}/>
           </div>
         </div>
        </div>
@@ -52,7 +66,9 @@ export default function AddEscalas () {
 
       <ContObs>
         <h3>Observações:</h3>
-        <input type='text' placeholder='Ex: Ensaio dia...'/>
+        {/* <input type='text' cols="40" rows="5" placeholder='Ex: Ensaio dia...' onChange={(e) => setValueObs(e.target.value)}/> */}
+
+        <textarea name="Text1" rows="7" onChange={(e) => setValueObs(e.target.value)} maxLength="70"></textarea>
        </ContObs>
 
       </Container>

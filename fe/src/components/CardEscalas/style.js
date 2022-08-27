@@ -2,8 +2,9 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 100%;
-  height: 88px;
+  height: 120px;
   display: flex;
+
   border-radius: 24px;
   background: #f00;
 
@@ -16,7 +17,7 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items:center;
-    width: 30%;
+    width: 35%;
     height: 100%;
     background: #4f4f4f;
 
@@ -33,10 +34,11 @@ export const Container = styled.div`
 
   .info{
     display:flex;
+    justify-content: center;
     flex-direction: column;
     width: 80%;
     height: 100%;
-    padding: 8px 0 0 20px;
+    padding: 8px 0 0 10px;
     background: #4f4f4f;
 
     border-top-right-radius: 8px;

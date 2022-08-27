@@ -10,8 +10,6 @@ export default function AuthProvider ({ children }) {
   const [loadinAuth, setLoadingAuth] = useState(false)
   const [loading, setLoading] = useState(true)
 
-  const [posts, setPosts] = useState([])
-
   // Verifica caso tenha algum usuario logado, ja seta os dados na state user
   useEffect(() => {
     function loadStorage () {
@@ -95,34 +93,8 @@ export default function AuthProvider ({ children }) {
     setUser(null)
   }
 
-  async function loadPost () {
-    await firebase.firestore().collection('codAuth')
-      .onSnapshot((doc) => {
-        const meusPosts = []
-
-        doc.forEach((item) => {
-          meusPosts.push({
-            id: item.id,
-            codigoAuth: item.data().codigoAuth
-          })
-        })
-
-        setPosts(meusPosts)
-      })
-  }
-
-  function SaveLocalCodAuth () {
-    let Codigo = ''
-    posts.map((item) => {
-      return (
-        Codigo = item.codigoAuth
-      )
-    })
-    localStorage.setItem('codAuth', JSON.stringify(Codigo))
-  }
-
   return (
-    <AuthContext.Provider value={{ signed: !!user, user, loading, loadinAuth, signUp, signOut, signIn, posts, loadPost, SaveLocalCodAuth }}>
+    <AuthContext.Provider value={{ signed: !!user, user, loading, loadinAuth, signUp, signOut, signIn }}>
       {children}
     </AuthContext.Provider>
   )

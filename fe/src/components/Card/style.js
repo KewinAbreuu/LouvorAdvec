@@ -10,7 +10,7 @@ export const Container = styled.div`
   height: 120px;
   background: ${({ theme }) => theme.colors.primary.dark};
   border-radius: 20px;
-  transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.1s;
 
 
 

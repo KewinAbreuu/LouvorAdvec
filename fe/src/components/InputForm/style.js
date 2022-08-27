@@ -11,7 +11,7 @@ export const Container = styled.div`
   img{
     width: 16px;
     position: relative;
-    margin-right: -35px;
+    margin-right: -28px;
     z-index: 5;
   }
 
@@ -23,7 +23,7 @@ export const Container = styled.div`
 
   border: none;
   border-radius:10px;
-  padding: 0 50px;
+  padding: 0 30px;
   color:#fff;
 
   &+&{

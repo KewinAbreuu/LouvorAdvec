@@ -17,9 +17,8 @@ export default function SignUp () {
 
   function handleSubmit (e) {
     e.preventDefault()
-    const codAuthAdm = localStorage.getItem('codAuth')
     if (nome !== '' && email !== '' && password !== '' && codAuth !== '') {
-      if (JSON.stringify(codAuth) === codAuthAdm) {
+      if (codAuth === '251225') {
         signUp(email, password, nome)
       } else { alert('Código de autorização INVÁLIDO.') }
     } else { alert('Preencha todos os campos!') }
