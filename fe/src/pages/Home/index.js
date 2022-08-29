@@ -47,7 +47,7 @@ export default function Home () {
       <Container>
         <Card title="Liderança" icon={lider} />
         <Card title="Escalas" icon={calendar} press='escalas' />
-        <Card title="Repertórios" icon={musica}/>
+        <Card title="Repertórios" icon={musica} press='repertorios'/>
       </Container>
 
       <Container style={{ marginBottom: '150px' }}>

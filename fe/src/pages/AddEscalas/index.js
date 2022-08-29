@@ -11,18 +11,27 @@ import hora from '../../assets/icons/hora.svg'
 import info from '../../assets/icons/info.svg'
 import { useState } from 'react'
 
+import equipes from './equipes'
+
 export default function AddEscalas () {
   const [valueTitulo, setValueTitulo] = useState('')
   const [valueHora, setValueHora] = useState('')
   const [valueData, setValueData] = useState('')
   const [valueObs, setValueObs] = useState('')
 
+  const dateFormated = valueData.split('-').reverse().join('/')
+
   function handlleAddLocalStorage () {
     localStorage.setItem('titulo', valueTitulo)
     localStorage.setItem('hora', valueHora)
-    localStorage.setItem('data', valueData)
+    localStorage.setItem('data', dateFormated)
+    localStorage.setItem('diaSemana', diaSemana)
     localStorage.setItem('obs', valueObs)
   }
+
+  const d = valueData.split('-')
+  const dataok = new Date(d[0], d[1] - 1, d[2]).getDay()
+  const diaSemana = ['DOM', 'SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SÁB'][dataok]
 
   return (
     <>
@@ -46,7 +55,7 @@ export default function AddEscalas () {
 
         <div style={{ display: 'flex', marginTop: 32 }}>
           <div style={{ width: '60%', marginRight: 8 }}>
-            <h3>Data:{valueData}</h3>
+            <h3>Data:</h3>
             <Input type='date' icon={data} onChange={(e) => setValueData(e.target.value)} />
           </div>
 
@@ -60,7 +69,12 @@ export default function AddEscalas () {
       <div className='contSelect'>
        <h3>Equipe:</h3>
        <select>
-          <option>oi</option>
+          <option disabled selected>Selecione uma equipe</option>
+          {equipes.map((equipe) => {
+            return (
+              <option key={equipe.id} value={equipe.label}>{equipe.label}</option>
+            )
+          })}
         </select>
       </div>
 
@@ -68,7 +82,7 @@ export default function AddEscalas () {
         <h3>Observações:</h3>
         {/* <input type='text' cols="40" rows="5" placeholder='Ex: Ensaio dia...' onChange={(e) => setValueObs(e.target.value)}/> */}
 
-        <textarea name="Text1" rows="7" onChange={(e) => setValueObs(e.target.value)} maxLength="70"></textarea>
+        <textarea name="Text1" rows="7" onChange={(e) => setValueObs(e.target.value)} maxLength="70" placeholder='Ex: Ensaio dia...'></textarea>
        </ContObs>
 
       </Container>

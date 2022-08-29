@@ -9,14 +9,20 @@ import add from '../../assets/icons/add.svg'
 
 import firebase from '../../services/firebaseConnection'
 import { useEffect, useState } from 'react'
+import DateTimePicker from 'react-datetime-picker'
 
 export default function Escalas () {
   const [posts, setPosts] = useState([])
   const [loadingPosts, setLoadingPosts] = useState(false)
 
+  const [value, onChange] = useState(new Date())
+  const DATINHA = value.toLocaleDateString()
+
   useEffect(() => {
     async function loadPosts () {
       await firebase.firestore().collection('escala')
+        .where('Data', '==', DATINHA)
+        .orderBy('DataCompare', 'desc')
         .onSnapshot((doc) => {
           const meusPosts = []
 
@@ -25,6 +31,7 @@ export default function Escalas () {
               id: item.id,
               Titulo: item.data().Titulo,
               Data: item.data().Data,
+              DiaSemana: item.data().DiaSemana,
               Hora: item.data().Hora,
               Obs: item.data().Obs,
               M1: item.data().M1,
@@ -36,37 +43,45 @@ export default function Escalas () {
           })
           setPosts(meusPosts)
         })
-        // .then(() => {
-        // })
     }
     loadPosts()
     setLoadingPosts(true)
-  }, [])
+  }, [value])
 
-  console.log(posts)
   return (
     <>
       <Container>
       <Header press='home' name='Escalas'/>
         <div>
-          <Input type='text' placeholder='Buscar'/>
+          {/* <Input type='text' placeholder='Buscar'/> */}
         </div>
         <div style={{ marginTop: 16 }}>
 
-          {loadingPosts === false && <Load/>}
+          {/* <input type="date" onChange={(e) => setDataAtual(e.target.value)} /> */}
+          <div className="contentpicker">
+            <div></div>
+            <DateTimePicker onChange={onChange} value={value}
+                disableClock={true}
+                isClockOpen={true}
+                format="dd-MM-y"
+                calendarClassName="PickerIN"
+                className="pickerDATE"
+              />
+            </div>
+
+          {!!loadingPosts === false && <Load/>}
 
           {posts.map((post) => {
             return (
               <CardEscalas key={post.id}
                 titulo={post.Titulo}
                 data={post.Data}
+                dia={post.DiaSemana}
                 hora={post.Hora}
                 obs={post.Obs}
               />
             )
           })}
-         {/* <CardEscalas/>
-         <CardEscalas/> */}
         </div>
           <BtnFlutter press="addEscalas" icon={add}/>
       </Container>

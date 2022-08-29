@@ -9,6 +9,8 @@ import Home from '../pages/Home'
 import Escalas from '../pages/Escalas'
 import AddEscalas from '../pages/AddEscalas'
 import AddMusicas from '../pages/AddMusicas'
+import Repertorios from '../pages/Repertorios'
+import AddRepertorio from '../pages/AddRepertorio'
 
 export default function Routes () {
   return (
@@ -21,6 +23,8 @@ export default function Routes () {
       <Route exact path="/escalas" component={Escalas} isPrivate />
       <Route exact path="/addEscalas" component={AddEscalas} isPrivate />
       <Route exact path="/addMusicas" component={AddMusicas} isPrivate />
+      <Route exact path="/repertorios" component={Repertorios} isPrivate />
+      <Route exact path="/addRepertorio" component={AddRepertorio} isPrivate />
     </Switch>
   )
 }

@@ -1,10 +1,10 @@
 import { Container } from './style'
 
-export default function CardEscalas ({ titulo, data, hora, obs, m1, m2, m3, m4, m5 }) {
+export default function CardEscalas ({ titulo, data, dia, hora, obs, m1, m2, m3, m4, m5 }) {
   return (
     <Container>
       <div className='date'>
-        <h1>QUI</h1>
+        <h1>{dia}</h1>
         <h1>{data}</h1>
         <h1>{hora}</h1>
       </div>
