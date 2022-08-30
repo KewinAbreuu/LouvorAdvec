@@ -5,8 +5,19 @@ export const Container = styled.div`
   height: 80px;
   display: flex;
 
-  border-radius: 24px;
-  background: #f00;
+  border-radius: 15px;
+  background: #404040;
+
+  transition: all ease-in-out 0.1s;
+  cursor:pointer;
+
+:hover{
+  background: #333;
+}
+
+:active{
+  background: #333;
+}
 
   &+&{
     margin-top:8px;
@@ -23,16 +34,15 @@ export const Container = styled.div`
     align-items:center;
     width: 20%;
     height: 100%;
-    background: #4f4f4f;
 
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
 
     h1{
       font-weight: 300;
       color: #fff;
       margin-top: 2px;
     }
+
+
   }
 
   .info{
@@ -42,7 +52,6 @@ export const Container = styled.div`
     width: 80%;
     height: 100%;
     padding: 8px 0 0 10px;
-    background: #4f4f4f;
 
     h1{
        color:#fff;
@@ -65,10 +74,7 @@ export const Container = styled.div`
     width: 20%;
     height: 100%;
     padding: 8px 0 0 10px;
-    background: #4f4f4f;
 
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
   }
 
 `

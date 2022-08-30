@@ -15,6 +15,7 @@ import CardsRepertorios from '../../components/CardRepertorios'
 
 export default function Repertorios () {
   const [posts, setPosts] = useState([])
+  const [busca, setBusca] = useState()
 
   useEffect(() => {
     async function loadPosts () {
@@ -38,16 +39,22 @@ export default function Repertorios () {
     loadPosts()
   }, [])
 
+  const loadFilter = posts.filter((post) => {
+    return (
+      post.Nome.startsWith(busca.toUpperCase())
+    )
+  })
+
   return (
     <>
       <Container>
       <Header press='home' name='Repertórios'/>
         <div>
-          <Input type='text' placeholder='Buscar'/>
+          <Input type='text' placeholder='Buscar' onChange={(e) => setBusca(e.target.value)}/>
         </div>
         <div style={{ marginTop: 16 }}>
 
-          {posts.map((post) => {
+          {loadFilter.map((post) => {
             return (
               <CardsRepertorios key={post.id}
                 titulo={post.Nome}

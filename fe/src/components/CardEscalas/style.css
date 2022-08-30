@@ -28,16 +28,16 @@
   padding: 10px;
   border-radius: 10px;
 }
-h2{
+.titulomodal{
   color:#52BA7C;
 }
-h3{
+.musicasmodal{
   margin-top: 16px;
   margin-bottom: 4px;
   color:#52BA7C;
 }
 
-button {
+.buttonmodal {
   padding: 5px;
   font-size: large;
   float: right;

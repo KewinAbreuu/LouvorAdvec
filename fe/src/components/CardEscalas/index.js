@@ -11,7 +11,9 @@ export default function CardEscalas ({ titulo, data, dia, hora, obs, m1, m2, m3,
   const [modalIsOpen, setIsOpen] = useState(false)
 
   function openModal () {
-    setIsOpen(true)
+    setTimeout(() => {
+      setIsOpen(true)
+    }, '200')
   }
 
   function closeModal () {
@@ -27,15 +29,15 @@ export default function CardEscalas ({ titulo, data, dia, hora, obs, m1, m2, m3,
         overlayClassName="modal-overlay"
         className="modal-content"
       >
-        <h2>{titulo}</h2>
+        <h2 className='titulomodal'>{titulo}</h2>
         <hr />
-        <h3>Musicas:</h3>
+        <h3 className='musicasmodal'>Musicas:</h3>
         <p>{m1}</p>
         <p>{m2}</p>
         <p>{m3}</p>
         <p>{m4}</p>
         <p>{m5}</p>
-        <button onClick={closeModal}>Fechar</button>
+        <button onClick={closeModal} className='buttonmodal'>Fechar</button>
       </Modal>
 
     <Container onClick={openModal}>
