@@ -36,13 +36,13 @@ export const Container = styled.div`
     display:flex;
     justify-content: center;
     flex-direction: column;
-    width: 80%;
+    width: 60%;
     height: 100%;
     padding: 8px 0 0 10px;
     background: #4f4f4f;
-
+/*
     border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+    border-bottom-right-radius: 8px; */
 
     h1{
        color:#fff;
@@ -55,6 +55,23 @@ export const Container = styled.div`
     h2{
       font-size: 14px;
       color:#52BA7C;
+    }
+  }
+
+  .MaisInfo{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+    padding: 8px 0 0 10px;
+    background: #4f4f4f;
+
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+
+    img{
+      width: 20px;
     }
   }
 

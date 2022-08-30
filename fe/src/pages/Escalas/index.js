@@ -79,6 +79,11 @@ export default function Escalas () {
                 dia={post.DiaSemana}
                 hora={post.Hora}
                 obs={post.Obs}
+                m1={post.M1}
+                m2={post.M2}
+                m3={post.M3}
+                m4={post.M4}
+                m5={post.M5}
               />
             )
           })}
