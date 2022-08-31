@@ -1,9 +1,9 @@
 import { Container } from './style'
 
-export default function BottomBar () {
+export default function BottomBar ({ NomeCompany }) {
   return (
     <Container>
-      <p>Advec Rio de janeiro</p>
+      <p>{NomeCompany}</p>
     </Container>
   )
 }

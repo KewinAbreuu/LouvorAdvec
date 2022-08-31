@@ -10,6 +10,7 @@ import titulo from '../../assets/icons/titulo.svg'
 import { useState } from 'react'
 import firebase from '../../services/firebaseConnection'
 import tons from './tons'
+import { useHistory } from 'react-router-dom'
 
 export default function AddRepertorio () {
   const [titulos, setTitulo] = useState('')
@@ -29,12 +30,18 @@ export default function AddRepertorio () {
       })
       .then(() => {
         alert('Música cadastrada')
+        handlleEscalas()
       })
       .catch((e) => {
         alert(e)
       })
   }
 
+  const history = useHistory()
+
+  function handlleEscalas () {
+    history.push('/repertorios')
+  }
   return (
     <>
       <Container>

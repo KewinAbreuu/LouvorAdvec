@@ -1,8 +1,9 @@
 import { Container } from './style'
 import Header from '../../components/Header'
 import BtnFlutter from '../../components/BtnFlutter'
+import { Input } from '../../components/Inputs'
 
-import ok from '../../assets/icons/ok.svg'
+import btnOk from '../../assets/icons/ok.svg'
 import addMusicas from '../../assets/icons/addMusica.svg'
 import { useEffect, useState } from 'react'
 import firebase from '../../services/firebaseConnection'
@@ -17,20 +18,25 @@ export default function AddMusicas () {
 
   const [posts, setPosts] = useState([])
 
+  const [busca, setBusca] = useState('a')
+  const ok = busca || 'a'
+
   useEffect(() => {
     async function loadPosts () {
       await firebase.firestore().collection('repertorio')
         .orderBy('Nome', 'asc')
-        .limit('6')
+        // .limit('6')
         .onSnapshot((doc) => {
           const meusPosts = []
 
           doc.forEach((item) => {
             meusPosts.push({
               id: item.id,
-              Nome: item.data().Nome,
+              Nome: item.data().Nome.toUpperCase(),
               Artista: item.data().Artista,
-              Tom: item.data().Tom
+              Tom: item.data().Tom,
+              Youtube: item.data().Youtube,
+              Letra: item.data().Letra
             })
           })
           setPosts(meusPosts)
@@ -76,10 +82,16 @@ export default function AddMusicas () {
       })
   }
 
+  // const loadFilter = posts.filter((post) => {
+  //   return (
+  //     post.Nome.startsWith(ok.toUpperCase())
+  //   )
+  // })
+
   return (
     <>
       <Container>
-        <BtnFlutter action={handdleAdd} icon={ok}/>
+        <BtnFlutter action={handdleAdd} icon={btnOk}/>
 
        <Header press='addEscalas' name='Nova escala'/>
 
@@ -90,11 +102,16 @@ export default function AddMusicas () {
 
           <div key='123' className='contSelect'>
           <h3>Musica 1:</h3>
+          {/* <input type='text' placeholder='Buscar' onChange={(e) => setBusca(e.target.value)} className='inputSelect'/> */}
           <select onChange={(e) => setValor(e.target.value)}>
             <option disabled selected>Selecione uma musica</option>
+            <input type="text" placeholder='Buscar'/>
             {posts.map((post) => {
               return (
-                <option key={post.id} value={`${post.Nome} - ${post.Artista}`}>{`${post.Nome} - ${post.Artista}`}</option>
+                <>
+                <option key={post.id} value={`${post.Nome} - ${post.Artista} + ${post.Youtube} + ${post.Letra}`}>{`${post.Nome} - ${post.Artista}`}
+                </option>
+                </>
               )
             })}
            </select>
@@ -106,7 +123,7 @@ export default function AddMusicas () {
             <option disabled selected>Selecione uma musica</option>
             {posts.map((post) => {
               return (
-                <option key={post.id} value={`${post.Nome} - ${post.Artista}`}>{`${post.Nome} - ${post.Artista}`}</option>
+                <option key={post.id} value={`${post.Nome} - ${post.Artista} + ${post.Youtube} + ${post.Letra}`}>{`${post.Nome} - ${post.Artista}`}</option>
               )
             })}
            </select>
@@ -118,7 +135,7 @@ export default function AddMusicas () {
             <option disabled selected>Selecione uma musica</option>
             {posts.map((post) => {
               return (
-                <option key={post.id} value={`${post.Nome} - ${post.Artista}`}>{`${post.Nome} - ${post.Artista}`}</option>
+                <option key={post.id} value={`${post.Nome} - ${post.Artista} + ${post.Youtube} + ${post.Letra}`}>{`${post.Nome} - ${post.Artista}`}</option>
               )
             })}
            </select>
@@ -130,7 +147,7 @@ export default function AddMusicas () {
             <option disabled selected>Selecione uma musica</option>
             {posts.map((post) => {
               return (
-                <option key={post.id} value={`${post.Nome} - ${post.Artista}`}>{`${post.Nome} - ${post.Artista}`}</option>
+                <option key={post.id} value={`${post.Nome} - ${post.Artista} + ${post.Youtube} + ${post.Letra}`}>{`${post.Nome} - ${post.Artista}`}</option>
               )
             })}
            </select>
@@ -142,7 +159,7 @@ export default function AddMusicas () {
             <option disabled selected>Selecione uma musica</option>
             {posts.map((post) => {
               return (
-                <option key={post.id} value={`${post.Nome} - ${post.Artista}`}>{`${post.Nome} - ${post.Artista}`}</option>
+                <option key={post.id} value={`${post.Nome} - ${post.Artista} + ${post.Youtube} + ${post.Letra}` }>{`${post.Nome} - ${post.Artista}`}</option>
               )
             })}
            </select>

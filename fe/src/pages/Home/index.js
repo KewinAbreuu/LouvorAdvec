@@ -1,5 +1,6 @@
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../contexts/auth'
+import firebase from '../../services/firebaseConnection'
 
 import { Body, Header, Banner, Welcomme, Container } from './style'
 import logo from '../../assets/images/logo.svg'
@@ -18,6 +19,26 @@ import BottomBar from '../../components/BottomBar'
 
 export default function Home () {
   const { signOut, user } = useContext(AuthContext)
+  const [posts, setPosts] = useState([])
+
+  useEffect(() => {
+    async function loadPosts () {
+      await firebase.firestore().collection('config')
+        .onSnapshot((doc) => {
+          const meusPosts = []
+
+          doc.forEach((item) => {
+            meusPosts.push({
+              id: item.id,
+              NomeCompany: item.data().NomeCompany
+            })
+          })
+
+          setPosts(meusPosts)
+        })
+    }
+    loadPosts()
+  }, [])
 
   return (
     <>
@@ -35,7 +56,11 @@ export default function Home () {
         </div>
       </Header>
       <Body>
-        <BottomBar/>
+        {posts.map((item) => {
+          return (
+            <BottomBar key={item.id} NomeCompany={item.NomeCompany}/>
+          )
+        })}
       <Banner>
         <img src={banner}/>
       </Banner>

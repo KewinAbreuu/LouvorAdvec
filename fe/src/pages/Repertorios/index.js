@@ -15,20 +15,21 @@ import CardsRepertorios from '../../components/CardRepertorios'
 
 export default function Repertorios () {
   const [posts, setPosts] = useState([])
-  const [busca, setBusca] = useState()
+  const [busca, setBusca] = useState('a')
+
+  const ok = busca || 'a'
 
   useEffect(() => {
     async function loadPosts () {
       await firebase.firestore().collection('repertorio')
         .orderBy('Nome', 'asc')
-        .limit('6')
         .onSnapshot((doc) => {
           const meusPosts = []
 
           doc.forEach((item) => {
             meusPosts.push({
               id: item.id,
-              Nome: item.data().Nome,
+              Nome: item.data().Nome.toUpperCase(),
               Artista: item.data().Artista,
               Tom: item.data().Tom
             })
@@ -37,11 +38,11 @@ export default function Repertorios () {
         })
     }
     loadPosts()
-  }, [])
+  }, [busca])
 
   const loadFilter = posts.filter((post) => {
     return (
-      post.Nome.startsWith(busca.toUpperCase())
+      post.Nome.startsWith(ok.toUpperCase())
     )
   })
 

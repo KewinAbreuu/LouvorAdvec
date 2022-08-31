@@ -9,6 +9,11 @@ Modal.setAppElement('#root')
 
 export default function CardEscalas ({ titulo, data, dia, hora, obs, m1, m2, m3, m4, m5 }) {
   const [modalIsOpen, setIsOpen] = useState(false)
+  const dados = m1.split('+')
+  const dados2 = m2.split('+')
+  const dados3 = m3.split('+')
+  const dados4 = m4.split('+')
+  const dados5 = m5.split('+')
 
   function openModal () {
     setTimeout(() => {
@@ -32,11 +37,32 @@ export default function CardEscalas ({ titulo, data, dia, hora, obs, m1, m2, m3,
         <h2 className='titulomodal'>{titulo}</h2>
         <hr />
         <h3 className='musicasmodal'>Musicas:</h3>
-        <p>{m1}</p>
-        <p>{m2}</p>
-        <p>{m3}</p>
-        <p>{m4}</p>
-        <p>{m5}</p>
+
+        <p>{dados[0]}</p>
+        <hr />
+        <a href={dados[1]}>{dados[1]}</a>
+        <a href={dados[2]}>{dados[2]}</a>
+
+        <p>{dados2[0]}</p>
+        <hr />
+        <a href={dados2[1]}>{dados2[1]}</a>
+        <a href={dados2[2]}>{dados2[2]}</a>
+
+        <p>{dados3[0]}</p>
+        {/* <hr /> */}
+        <a href={dados3[1]}>{dados3[1]}</a>
+        <a href={dados3[2]}>{dados3[2]}</a>
+
+        <p>{dados4[0]}</p>
+        <hr />
+        <a href={dados4[1]}>{dados4[1]}</a>
+        <a href={dados4[2]}>{dados4[2]}</a>
+
+        <p>{dados5[0]}</p>
+        <hr />
+        <a href={dados5[1]}>{dados5[1]}</a>
+        <a href={dados5[2]}>{dados5[2]}</a>
+
         <button onClick={closeModal} className='buttonmodal'>Fechar</button>
       </Modal>
 

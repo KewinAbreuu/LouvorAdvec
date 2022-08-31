@@ -10,6 +10,17 @@ export const Container = styled.div`
     margin-bottom: 8px;
   }
 
+  .inputSelect{
+    width: 100%;
+    height: 32px;
+    margin-bottom: 8px;
+    border:0;
+    padding: 16px;
+  }
+  .inputSelect:focus{
+    outline:none;
+  }
+
   .contSelect{
     width: 100%;
     margin-top: 24px;
