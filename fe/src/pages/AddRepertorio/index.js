@@ -22,7 +22,7 @@ export default function AddRepertorio () {
   async function handlleAdd () {
     await firebase.firestore().collection('repertorio')
       .add({
-        Nome: titulos,
+        Nome: titulos.toUpperCase(),
         Artista: artista,
         Tom: tom,
         Youtube: youtube,

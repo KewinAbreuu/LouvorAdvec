@@ -15,34 +15,47 @@ import CardsRepertorios from '../../components/CardRepertorios'
 
 export default function Repertorios () {
   const [posts, setPosts] = useState([])
-  const [busca, setBusca] = useState('a')
+  const [busca, setBusca] = useState('')
 
-  const ok = busca || 'a'
+  const [lastKey, setLastKey] = useState()
+  const [isEmpty, setEmpty] = useState(false)
 
   useEffect(() => {
-    async function loadPosts () {
-      await firebase.firestore().collection('repertorio')
-        .orderBy('Nome', 'asc')
-        .onSnapshot((doc) => {
-          const meusPosts = []
+    firebase.firestore().collection('repertorio')
+      .orderBy('Nome', 'desc')
+      .limit(3)
+      .get()
+      .then((collections) => {
+        updateState(collections)
+      })
+  }, [])
 
-          doc.forEach((item) => {
-            meusPosts.push({
-              id: item.id,
-              Nome: item.data().Nome.toUpperCase(),
-              Artista: item.data().Artista,
-              Tom: item.data().Tom
-            })
-          })
-          setPosts(meusPosts)
-        })
+  const updateState = (collections) => {
+    const isCollectionEmpty = collections.size === 0
+    if (!isCollectionEmpty) {
+      const colors = collections.docs.map((color) => color.data())
+      const Lastdoc = collections.docs[collections.docs.length - 1]
+      setPosts((Listofcolors) => [...Listofcolors, ...colors])
+      setLastKey(Lastdoc)
+    } else {
+      setEmpty(true)
     }
-    loadPosts()
-  }, [busca])
+  }
+
+  const fetchMorePosts = () => {
+    firebase.firestore().collection('repertorio')
+      .orderBy('Nome', 'desc')
+      .startAfter(lastKey)
+      .limit(3)
+      .get()
+      .then((collections) => {
+        updateState(collections)
+      })
+  }
 
   const loadFilter = posts.filter((post) => {
     return (
-      post.Nome.startsWith(ok.toUpperCase())
+      post.Nome.startsWith(busca.toUpperCase())
     )
   })
 
@@ -55,6 +68,10 @@ export default function Repertorios () {
         </div>
         <div style={{ marginTop: 16 }}>
 
+          {posts.length === 0 &&
+          <div style={{ width: '100%', height: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }}> <Load/> </div>
+          }
+
           {loadFilter.map((post) => {
             return (
               <CardsRepertorios key={post.id}
@@ -64,6 +81,9 @@ export default function Repertorios () {
               />
             )
           })}
+          <div className='contentBtnMore'>
+            <a onClick={fetchMorePosts} className='btnMore'>Mostrar mais</a>
+          </div>
         </div>
           <BtnFlutter press="addRepertorio" icon={add}/>
       </Container>

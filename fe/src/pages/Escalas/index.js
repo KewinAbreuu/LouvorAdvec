@@ -13,7 +13,6 @@ import DateTimePicker from 'react-datetime-picker'
 
 export default function Escalas () {
   const [posts, setPosts] = useState([])
-  const [loadingPosts, setLoadingPosts] = useState(false)
 
   const [value, onChange] = useState(new Date())
   const DATINHA = value.toLocaleDateString()
@@ -45,7 +44,6 @@ export default function Escalas () {
         })
     }
     loadPosts()
-    setLoadingPosts(true)
   }, [value])
 
   return (
@@ -69,7 +67,9 @@ export default function Escalas () {
               />
             </div>
 
-          {!!loadingPosts === false && <Load/>}
+            {posts.length === 0 &&
+            <div style={{ width: '100%', height: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }}> <Load/> </div>
+            }
 
           {posts.map((post) => {
             return (
