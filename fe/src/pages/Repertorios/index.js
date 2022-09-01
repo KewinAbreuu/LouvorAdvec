@@ -23,7 +23,7 @@ export default function Repertorios () {
   useEffect(() => {
     firebase.firestore().collection('repertorio')
       .orderBy('Nome', 'desc')
-      .limit(3)
+      .limit(5)
       .get()
       .then((collections) => {
         updateState(collections)
@@ -78,6 +78,8 @@ export default function Repertorios () {
                 titulo={post.Nome}
                 tom={post.Tom}
                 obs={post.Artista}
+                youtube={post.Youtube}
+                letra={post.Letra}
               />
             )
           })}

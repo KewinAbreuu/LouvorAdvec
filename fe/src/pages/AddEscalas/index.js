@@ -18,6 +18,7 @@ export default function AddEscalas () {
   const [valueHora, setValueHora] = useState('')
   const [valueData, setValueData] = useState('')
   const [valueObs, setValueObs] = useState('')
+  const [equipe, setEquipe] = useState('')
 
   const dateFormated = valueData.split('-').reverse().join('/')
 
@@ -27,6 +28,7 @@ export default function AddEscalas () {
     localStorage.setItem('data', dateFormated)
     localStorage.setItem('diaSemana', diaSemana)
     localStorage.setItem('obs', valueObs)
+    localStorage.setItem('equipe', equipe)
   }
 
   const d = valueData.split('-')
@@ -68,7 +70,7 @@ export default function AddEscalas () {
 
       <div className='contSelect'>
        <h3>Equipe:</h3>
-       <select>
+       <select onChange={(e) => setEquipe(e.target.value)}>
           <option disabled selected>Selecione uma equipe</option>
           {equipes.map((equipe) => {
             return (

@@ -57,6 +57,7 @@ export default function AddMusicas () {
     const data = localStorage.getItem('data')
     const diaSemana = localStorage.getItem('diaSemana')
     const obs = localStorage.getItem('obs')
+    const equipe = localStorage.getItem('equipe')
     const dataCompare = new Date()
 
     await firebase.firestore().collection('escala')
@@ -66,6 +67,7 @@ export default function AddMusicas () {
         Data: data,
         DataCompare: dataCompare,
         DiaSemana: diaSemana,
+        Equipe: equipe,
         Obs: obs,
         M1: valor,
         M2: valor2,

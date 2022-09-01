@@ -11,6 +11,8 @@ import AddEscalas from '../pages/AddEscalas'
 import AddMusicas from '../pages/AddMusicas'
 import Repertorios from '../pages/Repertorios'
 import AddRepertorio from '../pages/AddRepertorio'
+import Liders from '../pages/Liders'
+import Mensagens from '../pages/Mensagens'
 
 export default function Routes () {
   return (
@@ -25,6 +27,8 @@ export default function Routes () {
       <Route exact path="/addMusicas" component={AddMusicas} isPrivate />
       <Route exact path="/repertorios" component={Repertorios} isPrivate />
       <Route exact path="/addRepertorio" component={AddRepertorio} isPrivate />
+      <Route exact path="/liders" component={Liders} isPrivate />
+      <Route exact path="/mensagens" component={Mensagens} isPrivate />
     </Switch>
   )
 }

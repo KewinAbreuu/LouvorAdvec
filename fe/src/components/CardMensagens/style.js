@@ -2,11 +2,11 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 100%;
-  height: 120px;
+  height: 80px;
   display: flex;
 
   border-radius: 10px;
-  background: #303030;
+  background: #292929;
 
   transition: all ease-in-out 0.1s;
   cursor:pointer;
@@ -23,22 +23,20 @@ export const Container = styled.div`
     margin-top:8px;
   }
 
-  .date{
+  .perfil{
     display:flex;
     flex-direction: column;
     justify-content: center;
-    align-items:center;
-    width: 35%;
+    /* align-items:center; */
+    padding-left: 8px;
+    width: 18%;
     height: 100%;
 
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-    border-right: solid 1px #52BA7C;
-
-    h1{
-      font-weight: 300;
-      color: #fff;
-      margin-top: 2px;
+    img{
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 50%;
     }
   }
 
@@ -58,29 +56,38 @@ export const Container = styled.div`
     }
     p{
       font-size: 14px;
-      color:#fff;
+      color:#cdcdcd;
       margin-bottom: 12px;
     }
     h2{
       font-size: 14px;
       color:#52BA7C;
     }
+
+    .titulo{
+      margin-top: 2px;
+      max-width: 15ch;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
 
   .MaisInfo{
     display:flex;
     justify-content: center;
-    align-items: center;
-    width: 20%;
+    width: 10%;
     height: 100%;
     padding: 8px 0 0 10px;
 
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
 
-    img{
-      width: 20px;
+    p{
+      color:#fff;
+      font-size: 14px;
     }
+
   }
 
 `

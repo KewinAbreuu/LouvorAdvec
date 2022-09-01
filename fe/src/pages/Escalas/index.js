@@ -33,6 +33,7 @@ export default function Escalas () {
               DiaSemana: item.data().DiaSemana,
               Hora: item.data().Hora,
               Obs: item.data().Obs,
+              Equipe: item.data().Equipe,
               M1: item.data().M1,
               M2: item.data().M2,
               M3: item.data().M3,
@@ -79,6 +80,7 @@ export default function Escalas () {
                 dia={post.DiaSemana}
                 hora={post.Hora}
                 obs={post.Obs}
+                equipe={post.Equipe}
                 m1={post.M1}
                 m2={post.M2}
                 m3={post.M3}

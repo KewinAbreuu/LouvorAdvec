@@ -70,14 +70,14 @@ export default function Home () {
       </Welcomme>
 
       <Container>
-        <Card title="Liderança" icon={lider} />
+        <Card title="Liderança" icon={lider} press='liders' />
         <Card title="Escalas" icon={calendar} press='escalas' />
         <Card title="Repertórios" icon={musica} press='repertorios'/>
       </Container>
 
       <Container style={{ marginBottom: '150px' }}>
+        <Card title="Membro" icon={cam}/>
         <Card title="Comunicados" icon={comunicado}/>
-        <Card title="Mídias" icon={cam}/>
         <Card title="Aulas" icon={aula}/>
       </Container>
       </Body>

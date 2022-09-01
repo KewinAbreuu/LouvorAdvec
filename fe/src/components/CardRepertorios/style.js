@@ -5,8 +5,8 @@ export const Container = styled.div`
   height: 80px;
   display: flex;
 
-  border-radius: 15px;
-  background: #404040;
+  border-radius: 10px;
+  background: #303030;
 
   transition: all ease-in-out 0.1s;
   cursor:pointer;

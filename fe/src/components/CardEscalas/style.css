@@ -23,7 +23,7 @@
 .modal-content {
   width: 90%;
   max-width: 500px;
-  background-color: #333;
+  background-color: #303030;
   color: #fff;
   padding: 10px;
   border-radius: 10px;
@@ -49,7 +49,34 @@
   margin-top: 16px;
 }
 
-a{
-  color:#52BA7C;
+.buttonmodalOk{
+  padding: 5px;
+  font-size: large;
+  float: right;
+  cursor: pointer;
+  background: #52BA7C;
+  border:0;
+  color:#fff;
+  border-radius: 5px;
+  margin-top: 5px;
 }
 
+a{
+  color:#6959CD;
+  transition: all ease-in 0.1s;
+}
+a:hover{
+  color:#2d6e47;
+}
+
+.ContainerModalEscalas{
+  margin-bottom: 16px;
+}
+
+.TituloCardEscalaModal{
+  text-decoration: underline #cdcdcd;
+}
+
+.ContentAncora{
+  margin-top: 8px;
+}

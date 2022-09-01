@@ -7,7 +7,7 @@ import { useState } from 'react'
 
 Modal.setAppElement('#root')
 
-export default function CardEscalas ({ titulo, data, dia, hora, obs, m1, m2, m3, m4, m5 }) {
+export default function CardEscalas ({ titulo, data, dia, hora, obs, m1, m2, m3, m4, m5, equipe }) {
   const [modalIsOpen, setIsOpen] = useState(false)
   const dados = m1.split('+')
   const dados2 = m2.split('+')
@@ -34,35 +34,49 @@ export default function CardEscalas ({ titulo, data, dia, hora, obs, m1, m2, m3,
         overlayClassName="modal-overlay"
         className="modal-content"
       >
-        <h2 className='titulomodal'>{titulo}</h2>
+        <h2 className='titulomodal'>Culto: {titulo}</h2>
         <hr />
         <h3 className='musicasmodal'>Musicas:</h3>
 
-        <p>{dados[0]}</p>
-        <hr />
-        <a href={dados[1]}>{dados[1]}</a>
-        <a href={dados[2]}>{dados[2]}</a>
+        <div className='ContainerModalEscalas'>
+          <p className='TituloCardEscalaModal'>{dados[0]}</p>
+          <a href={dados[1]}>{dados[1]}</a>
+          <div className='ContentAncora'>
+             <a href={dados[2]}>{dados[2]}</a>
+          </div>
+        </div>
 
-        <p>{dados2[0]}</p>
-        <hr />
-        <a href={dados2[1]}>{dados2[1]}</a>
-        <a href={dados2[2]}>{dados2[2]}</a>
+        <div className='ContainerModalEscalas'>
+          <p className='TituloCardEscalaModal'>{dados2[0]}</p>
+          <a href={dados2[1]}>{dados2[1]}</a>
+          <div className='ContentAncora'>
+              <a href={dados2[2]}>{dados2[2]}</a>
+          </div>
+        </div>
 
-        <p>{dados3[0]}</p>
-        {/* <hr /> */}
-        <a href={dados3[1]}>{dados3[1]}</a>
-        <a href={dados3[2]}>{dados3[2]}</a>
+        <div className='ContainerModalEscalas'>
+          <p className='TituloCardEscalaModal'>{dados3[0]}</p>
+          <a href={dados3[1]}>{dados3[1]}</a>
+          <div className='ContentAncora'>
+              <a href={dados3[2]}>{dados3[2]}</a>
+          </div>
+        </div>
 
-        <p>{dados4[0]}</p>
-        <hr />
-        <a href={dados4[1]}>{dados4[1]}</a>
-        <a href={dados4[2]}>{dados4[2]}</a>
+        <div className='ContainerModalEscalas'>
+          <p className='TituloCardEscalaModal'>{dados4[0]}</p>
+          <a href={dados4[1]}>{dados4[1]}</a>
+          <div className='ContentAncora'>
+              <a href={dados4[2]}>{dados4[2]}</a>
+          </div>
+        </div>
 
-        <p>{dados5[0]}</p>
-        <hr />
-        <a href={dados5[1]}>{dados5[1]}</a>
-        <a href={dados5[2]}>{dados5[2]}</a>
-
+        <div className='ContainerModalEscalas'>
+          <p className='TituloCardEscalaModal'>{dados5[0]}</p>
+          <a href={dados5[1]}>{dados5[1]}</a>
+          <div className='ContentAncora'>
+             <a href={dados5[2]}>{dados5[2]}</a>
+          </div>
+        </div>
         <button onClick={closeModal} className='buttonmodal'>Fechar</button>
       </Modal>
 
@@ -76,7 +90,7 @@ export default function CardEscalas ({ titulo, data, dia, hora, obs, m1, m2, m3,
       <div className='info'>
        <h1>{titulo}</h1>
        <p>{obs}</p>
-       <h2>Equipe 02</h2>
+       <h2>Equipe: {equipe}</h2>
       </div>
 
       <div className='MaisInfo'>
