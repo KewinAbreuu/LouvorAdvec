@@ -1,33 +1,26 @@
 import { Container } from './style'
 import Header from '../../components/Header'
-// import { Input } from '../../components/Inputs'
-// import BtnFlutter from '../../components/BtnFlutter'
-import CardMensagens from '../../components/CardMensagens'
+import CardMembros from '../../components/CardMembros'
 import Load from '../../components/Load'
-
-// import add from '../../assets/icons/add.svg'
 
 import firebase from '../../services/firebaseConnection'
 import { useEffect, useState } from 'react'
 
-export default function Mensagens () {
+export default function Membros () {
   const [posts, setPosts] = useState([])
 
   useEffect(() => {
     async function loadPosts () {
-      await firebase.firestore().collection('mensagens')
-        .orderBy('DataCompare', 'desc')
+      await firebase.firestore().collection('users')
+        .orderBy('dataCreated', 'desc')
         .onSnapshot((doc) => {
           const meusPosts = []
 
           doc.forEach((item) => {
             meusPosts.push({
               id: item.id,
-              Titulo: item.data().Titulo,
-              Data: item.data().Data,
-              Nome: item.data().Nome,
-              Conteudo: item.data().Conteudo,
-              Contato: item.data().Contato
+              Nome: item.data().nome,
+              Config: item.data().config
             })
           })
           setPosts(meusPosts)
@@ -39,7 +32,7 @@ export default function Mensagens () {
   return (
     <>
       <Container>
-      <Header press='liders' name='Mensagens'/>
+      <Header press='liders' name='Membros'/>
         <div>
         </div>
         <div style={{ marginTop: 16 }}>
@@ -49,18 +42,14 @@ export default function Mensagens () {
 
           {posts.map((post) => {
             return (
-              <CardMensagens key={post.id}
-                titulo={post.Titulo}
-                data={post.Data}
-                mensagem={post.Mensagem}
+              <CardMembros key={post.id}
                 nome={post.Nome}
-                conteudo={post.Conteudo}
-                contato={post.Contato}
+                config={post.Config}
+                id={post.id}
               />
             )
           })}
         </div>
-          {/* <BtnFlutter press="addEscalas" icon={add}/> */}
       </Container>
     </>
   )

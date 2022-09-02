@@ -25,7 +25,7 @@ export const Container = styled.div`
   }
 
   img{
-    width: 30px;
+    width: 24px;
     fill: aliceblue;
     transition: all ease-in-out 0.2s;
   }

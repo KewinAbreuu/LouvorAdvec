@@ -16,11 +16,12 @@ import aula from '../../assets/icons/aula.svg'
 
 import Card from '../../components/Card'
 import BottomBar from '../../components/BottomBar'
+import LoadPerm from '../../components/LoadPerm'
 
 export default function Home () {
   const { signOut, user } = useContext(AuthContext)
   const [posts, setPosts] = useState([])
-
+  const [config, setConfig] = useState([])
   useEffect(() => {
     async function loadPosts () {
       await firebase.firestore().collection('config')
@@ -39,6 +40,25 @@ export default function Home () {
     }
     loadPosts()
   }, [])
+
+  const configuracao = localStorage.getItem('idUser')
+
+  useEffect(() => {
+    setTimeout(() => {
+      async function loadPostsOk () {
+        const doc = await firebase.firestore().collection('users')
+          .doc(configuracao).get()
+        if (!doc.exists) {
+          console.log('No such document!')
+        } else {
+          setConfig(doc.data().config)
+        }
+      }
+      loadPostsOk()
+    }, 1000)
+  }, [])
+
+  console.log(config)
 
   return (
     <>
@@ -69,17 +89,27 @@ export default function Home () {
         <p>{user.nome}</p>
       </Welcomme>
 
-      <Container>
-        <Card title="Liderança" icon={lider} press='liders' />
-        <Card title="Escalas" icon={calendar} press='escalas' />
-        <Card title="Repertórios" icon={musica} press='repertorios'/>
-      </Container>
+      {!config
+        ? <>
+         <Container>
+              <Card title="Liderança" icon={lider} press='liders' />
+              <Card title="Escalas" icon={calendar} press='escalas' />
+              <Card title="Repertórios" icon={musica} press='repertorios'/>
+            </Container>
 
-      <Container style={{ marginBottom: '150px' }}>
-        <Card title="Membro" icon={cam}/>
-        <Card title="Comunicados" icon={comunicado}/>
-        <Card title="Aulas" icon={aula}/>
-      </Container>
+            <Container style={{ marginBottom: '150px' }}>
+              <Card title="Comunicado" icon={comunicado}/>
+              <Card title="Avisos" icon={cam}/>
+              <Card title="Aulas" icon={aula}/>
+            </Container>
+            </>
+        : <>
+            <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: 32 }}>
+              <LoadPerm/>
+            </div>
+          </>
+      }
+
       </Body>
     </>
   )

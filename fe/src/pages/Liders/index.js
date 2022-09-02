@@ -15,7 +15,7 @@ export default function Liders () {
 
       <div className="content">
         <CardLiders title='Mensagens' icon={info} press="mensagens"/>
-        <CardLiders title='Membros' icon={info}/>
+        <CardLiders title='Membros' icon={info} press="membros"/>
       </div>
 
       <div className="content">

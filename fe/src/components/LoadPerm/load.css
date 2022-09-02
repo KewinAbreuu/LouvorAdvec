@@ -1,0 +1,12 @@
+[class*=classic]:before {
+  content:"Aguardando Permissões...";
+}
+
+.classic-1 {
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 16px;
+  color:#fff;
+  animation:c1 1s linear infinite alternate;
+}
+@keyframes c1 {to{opacity: 0}}

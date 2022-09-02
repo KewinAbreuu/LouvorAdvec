@@ -13,6 +13,7 @@ import Repertorios from '../pages/Repertorios'
 import AddRepertorio from '../pages/AddRepertorio'
 import Liders from '../pages/Liders'
 import Mensagens from '../pages/Mensagens'
+import Membros from '../pages/Membros'
 
 export default function Routes () {
   return (
@@ -29,6 +30,7 @@ export default function Routes () {
       <Route exact path="/addRepertorio" component={AddRepertorio} isPrivate />
       <Route exact path="/liders" component={Liders} isPrivate />
       <Route exact path="/mensagens" component={Mensagens} isPrivate />
+      <Route exact path="/membros" component={Membros} isPrivate />
     </Switch>
   )
 }

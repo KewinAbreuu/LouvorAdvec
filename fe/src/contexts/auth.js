@@ -36,7 +36,9 @@ export default function AuthProvider ({ children }) {
         await firebase.firestore().collection('users')
           .doc(uid).set({
             nome,
-            avatarUrl: null
+            avatarUrl: null,
+            config: true,
+            dataCreated: firebase.firestore.FieldValue.serverTimestamp()
           })
           .then(() => {
             const data = {
@@ -45,9 +47,12 @@ export default function AuthProvider ({ children }) {
               email: value.user.email,
               avatarUrl: null
             }
+            const dataId = uid
+
             setUser(data)
             storageUser(data)
             setLoadingAuth(false)
+            localStorage.setItem('idUser', dataId)
           })
       })
       .catch((error) => {
@@ -72,9 +77,12 @@ export default function AuthProvider ({ children }) {
           avatarUrl: userProfile.data().avatarUrl,
           email: value.user.email
         }
+        const dataId = uid
+
         setUser(data)
         storageUser(data)
         setLoadingAuth(false)
+        localStorage.setItem('idUser', dataId)
       })
       .catch((error) => {
         console.log(error)
@@ -90,6 +98,7 @@ export default function AuthProvider ({ children }) {
   async function signOut () {
     await firebase.auth().signOut()
     localStorage.removeItem('SistemaUser')
+    localStorage.removeItem('idUser')
     setUser(null)
   }
 
