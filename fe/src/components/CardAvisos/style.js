@@ -53,6 +53,7 @@ export const Container = styled.div`
     p{
       color:#cdcdcd;
       margin-top: 4px;
+      font-size: 12px;
     }
   }
 

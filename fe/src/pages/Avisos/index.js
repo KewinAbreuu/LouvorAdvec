@@ -131,7 +131,7 @@ export default function Avisos () {
         <div className='DivInput'>
         <input type='text' placeholder='Url Image' className='inputMod' onChange={(e) => setUrlImage(e.target.value)}/>
         </div>
-        <input type='text' placeholder='Mensagem' className='inputMod' onChange={(e) => setMsg(e.target.value)}/>
+        <input type='textarea' placeholder='Mensagem' className='inputModArea' onChange={(e) => setMsg(e.target.value)}/>
 
         <div className='DivBtn'>
 
