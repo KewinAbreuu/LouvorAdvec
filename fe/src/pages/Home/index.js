@@ -11,7 +11,7 @@ import calendar from '../../assets/icons/calendario.svg'
 import lider from '../../assets/icons/lider.svg'
 import musica from '../../assets/icons/musica.svg'
 import comunicado from '../../assets/icons/comunicado.svg'
-import cam from '../../assets/icons/cam.svg'
+import cam from '../../assets/icons/info.svg'
 import aula from '../../assets/icons/aula.svg'
 
 import Card from '../../components/Card'
@@ -58,8 +58,6 @@ export default function Home () {
     }, 1000)
   }, [])
 
-  console.log(config)
-
   return (
     <>
       <Header>
@@ -89,17 +87,18 @@ export default function Home () {
         <p>{user.nome}</p>
       </Welcomme>
 
-      {!config
+      {config === 1
         ? <>
          <Container>
+
               <Card title="Liderança" icon={lider} press='liders' />
               <Card title="Escalas" icon={calendar} press='escalas' />
               <Card title="Repertórios" icon={musica} press='repertorios'/>
             </Container>
 
             <Container style={{ marginBottom: '150px' }}>
-              <Card title="Comunicado" icon={comunicado}/>
-              <Card title="Avisos" icon={cam}/>
+              <Card title="Comunicar" icon={comunicado}/>
+              <Card title="Avisos" icon={cam} press='avisos'/>
               <Card title="Aulas" icon={aula}/>
             </Container>
             </>

@@ -13,9 +13,11 @@ import DateTimePicker from 'react-datetime-picker'
 
 export default function Escalas () {
   const [posts, setPosts] = useState([])
+  const [adm, setAdm] = useState([])
 
   const [value, onChange] = useState(new Date())
   const DATINHA = value.toLocaleDateString()
+  const configuracao = localStorage.getItem('idUser')
 
   useEffect(() => {
     async function loadPosts () {
@@ -47,16 +49,29 @@ export default function Escalas () {
     loadPosts()
   }, [value])
 
+  useEffect(() => {
+    setTimeout(() => {
+      async function loadPostsOk () {
+        const doc = await firebase.firestore().collection('users')
+          .doc(configuracao).get()
+        if (!doc.exists) {
+          console.log('No such document!')
+        } else {
+          setAdm(doc.data().adm)
+        }
+      }
+      loadPostsOk()
+    }, 1000)
+  }, [])
+
   return (
     <>
       <Container>
       <Header press='home' name='Escalas'/>
         <div>
-          {/* <Input type='text' placeholder='Buscar'/> */}
         </div>
         <div style={{ marginTop: 16 }}>
 
-          {/* <input type="date" onChange={(e) => setDataAtual(e.target.value)} /> */}
           <div className="contentpicker">
             <div></div>
             <DateTimePicker onChange={onChange} value={value}
@@ -90,7 +105,11 @@ export default function Escalas () {
             )
           })}
         </div>
-          <BtnFlutter press="addEscalas" icon={add}/>
+
+         {adm === 1 &&
+           <BtnFlutter press="addEscalas" icon={add}/>
+          }
+
       </Container>
     </>
   )

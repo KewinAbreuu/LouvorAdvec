@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 80px;
   display: flex;
 
-  border-radius: 10px;
+  border-radius: 30px;
   background: #303030;
 
   transition: all ease-in-out 0.1s;
@@ -63,7 +63,7 @@ export const Container = styled.div`
     }
     h2{
       font-size: 14px;
-      color:#52BA7C;
+      color:#cdcdcd;
     }
   }
 

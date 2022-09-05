@@ -29,7 +29,7 @@ export const Container = styled.div`
       height: 50px;
       object-fit: cover;
       border-radius: 50%;
-      border: 1.5px solid  ${(props) => props.toggle === false ? '#1B8D49' : '#f00'};
+      border: 1.5px solid  ${(props) => props.toggle === 0 ? '#f00' : '#1B8D49'};
 
     }
   }
@@ -87,7 +87,7 @@ export const Container = styled.div`
       border-radius: 10px;
       margin-right: 10px;
       background: #1B8D49;
-      background: ${(props) => props.toggle === true ? '#1B8D49' : '#191919'};
+      background: ${(props) => props.toggle === 1 ? '#191919' : '#1B8D49'};
       color:#fff;
     }
   }

@@ -58,7 +58,8 @@
   border:0;
   color:#fff;
   border-radius: 5px;
-  margin-top: 5px;
+  margin-top: 16px;
+  margin-right: 4px;
 }
 
 a{
@@ -79,4 +80,30 @@ a:hover{
 
 .ContentAncora{
   margin-top: 8px;
+}
+
+.DivInput{
+  margin-bottom: 8px;
+}
+
+.DivBtn{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputMod{
+  width:100%;
+  height:32px;
+  border:0;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.inputMod:focus{
+  outline: none;
+}
+
+.TituloAvisoss{
+  margin-bottom: 16px;
 }

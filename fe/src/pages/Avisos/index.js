@@ -2,18 +2,19 @@ import { Container } from './style'
 import Header from '../../components/Header'
 import { Input } from '../../components/Inputs'
 import BtnFlutter from '../../components/BtnFlutter'
-import CardEscalas from '../../components/CardEscalas'
+import CardAvisos from '../../components/CardAvisos'
+
 import Load from '../../components/Load'
 
 import add from '../../assets/icons/add.svg'
 
 import firebase from '../../services/firebaseConnection'
 import { useEffect, useState } from 'react'
-import DateTimePicker from 'react-datetime-picker'
 
-import CardsRepertorios from '../../components/CardRepertorios'
+import Modal from 'react-modal'
+Modal.setAppElement('#root')
 
-export default function Repertorios () {
+export default function Avisos () {
   const [posts, setPosts] = useState([])
   const [busca, setBusca] = useState('')
 
@@ -22,6 +23,23 @@ export default function Repertorios () {
 
   const [adm, setAdm] = useState([])
   const configuracao = localStorage.getItem('idUser')
+
+  const [titulo, setTitulo] = useState()
+  const [urlImage, setUrlImage] = useState()
+  const [msg, setMsg] = useState()
+  const [controlBtn, setControlBtn] = useState(false)
+
+  const [modalIsOpen, setIsOpen] = useState(false)
+
+  function openModal () {
+    setTimeout(() => {
+      setIsOpen(true)
+    }, '200')
+  }
+
+  function closeModal () {
+    setIsOpen(false)
+  }
 
   useEffect(() => {
     setTimeout(() => {
@@ -39,9 +57,9 @@ export default function Repertorios () {
   }, [])
 
   useEffect(() => {
-    firebase.firestore().collection('repertorio')
-      .orderBy('Nome', 'desc')
-      .limit(5)
+    firebase.firestore().collection('avisos')
+      .orderBy('DataCreate', 'desc')
+      .limit(2)
       .get()
       .then((collections) => {
         updateState(collections)
@@ -61,7 +79,7 @@ export default function Repertorios () {
   }
 
   const fetchMorePosts = () => {
-    firebase.firestore().collection('repertorio')
+    firebase.firestore().collection('avisos')
       .orderBy('Nome', 'desc')
       .startAfter(lastKey)
       .limit(3)
@@ -77,10 +95,53 @@ export default function Repertorios () {
     )
   })
 
+  async function handlleAdd () {
+    setControlBtn(true)
+    await firebase.firestore().collection('avisos')
+      .add({
+        Nome: titulo,
+        ImageUrl: urlImage,
+        Mensagem: msg,
+        DataCreate: firebase.firestore.FieldValue.serverTimestamp()
+      })
+      .then(() => {
+        closeModal()
+      })
+      .catch((e) => {
+        alert(e)
+      })
+    setControlBtn(false)
+  }
+
   return (
     <>
+     <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Example Modal"
+        overlayClassName="modal-overlay"
+        className="modal-content"
+      >
+
+        <h2 className='TituloAvisoss'>Adicionar novo Aviso</h2>
+        <div className='DivInput'>
+        <input type='text' placeholder='Titulo' className='inputMod' onChange={(e) => setTitulo(e.target.value)}/>
+        </div>
+
+        <div className='DivInput'>
+        <input type='text' placeholder='Url Image' className='inputMod' onChange={(e) => setUrlImage(e.target.value)}/>
+        </div>
+        <input type='text' placeholder='Mensagem' className='inputMod' onChange={(e) => setMsg(e.target.value)}/>
+
+        <div className='DivBtn'>
+
+        <button onClick={handlleAdd} className='buttonmodalOk'>{controlBtn === true ? 'carregando...' : 'Salvar'}</button>
+        <button onClick={closeModal} className='buttonmodal'>Fechar</button>
+        </div>
+      </Modal>
+
       <Container>
-      <Header press='home' name='Repertórios'/>
+      <Header press='home' name='Avisos'/>
         <div>
           <Input type='text' placeholder='Buscar' onChange={(e) => setBusca(e.target.value)}/>
         </div>
@@ -92,12 +153,10 @@ export default function Repertorios () {
 
           {loadFilter.map((post) => {
             return (
-              <CardsRepertorios key={post.id}
-                titulo={post.Nome}
-                tom={post.Tom}
-                obs={post.Artista}
-                youtube={post.Youtube}
-                letra={post.Letra}
+              <CardAvisos key={Math.random()}
+                nome={post.Nome}
+                msg={post.Mensagem}
+                img={post.ImageUrl}
               />
             )
           })}
@@ -107,7 +166,7 @@ export default function Repertorios () {
         </div>
 
         {adm === 1 &&
-         <BtnFlutter press="addRepertorio" icon={add}/>
+         <BtnFlutter action={openModal} icon={add}/>
          }
 
       </Container>

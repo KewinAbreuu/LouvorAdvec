@@ -37,7 +37,8 @@ export default function AuthProvider ({ children }) {
           .doc(uid).set({
             nome,
             avatarUrl: null,
-            config: true,
+            config: 0,
+            adm: 0,
             dataCreated: firebase.firestore.FieldValue.serverTimestamp()
           })
           .then(() => {

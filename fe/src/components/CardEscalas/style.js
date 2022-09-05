@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 120px;
   display: flex;
 
-  border-radius: 10px;
+  border-radius: 30px;
   background: #303030;
 
   transition: all ease-in-out 0.1s;
@@ -33,7 +33,7 @@ export const Container = styled.div`
 
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
-    border-right: solid 1px #52BA7C;
+    border-right: solid 0.2px #cdcdcd;
 
     h1{
       font-weight: 300;

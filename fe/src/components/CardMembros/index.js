@@ -8,11 +8,16 @@ import firebase from '../../services/firebaseConnection'
 Modal.setAppElement('#root')
 
 export default function CardMembros ({ nome, config, id }) {
-  const [toggle, setToggle] = useState()
+  const [toggle, setToggle] = useState(1)
 
   function OnOff () {
-    setToggle(!toggle)
-    handlleConfig()
+    if (toggle === 1) {
+      setToggle(0)
+      handlleConfig()
+    } else {
+      setToggle(1)
+      handlleConfig()
+    }
   }
 
   async function handlleConfig () {
@@ -36,7 +41,7 @@ export default function CardMembros ({ nome, config, id }) {
       </div>
 
       <div className='MaisInfo'>
-        <button className='BtnOnOff' onClick={OnOff}>{config ? 'Ativar' : 'Desativar'}</button>
+        <button className='BtnOnOff' onClick={OnOff}>{config ? 'Desativar' : 'Ativar'}</button>
       </div>
     </Container>
     </>
