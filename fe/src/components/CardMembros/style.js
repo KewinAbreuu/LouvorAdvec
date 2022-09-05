@@ -69,7 +69,7 @@ export const Container = styled.div`
     display:flex;
     justify-content: center;
     align-items: center;
-    width: 30%;
+    width: 50%;
     height: 100%;
     padding: 8px 0 0 10px;
 
@@ -89,6 +89,18 @@ export const Container = styled.div`
       background: #1B8D49;
       background: ${(props) => props.toggle === 1 ? '#191919' : '#1B8D49'};
       color:#fff;
+    }
+
+    .BtnLider{
+      width: 90px;
+      height: 35px;
+      border:0;
+      border-radius: 10px;
+      margin-right: 10px;
+      background: #1B8D49;
+      background: ${(props) => props.adm === 1 ? '#B8860B' : '#191919'};
+      color:#fff;
+
     }
   }
 

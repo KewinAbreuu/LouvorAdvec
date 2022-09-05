@@ -7,8 +7,9 @@ import firebase from '../../services/firebaseConnection'
 
 Modal.setAppElement('#root')
 
-export default function CardMembros ({ nome, config, id }) {
+export default function CardMembros ({ nome, config, adm, id }) {
   const [toggle, setToggle] = useState(1)
+  const [Ladm, setAdm] = useState(1)
 
   function OnOff () {
     if (toggle === 1) {
@@ -28,10 +29,28 @@ export default function CardMembros ({ nome, config, id }) {
       })
   }
 
+  function Adm () {
+    if (Ladm === 1) {
+      setAdm(0)
+      handlleAdm()
+    } else {
+      setAdm(1)
+      handlleAdm()
+    }
+  }
+
+  async function handlleAdm () {
+    await firebase.firestore().collection('users')
+      .doc(id)
+      .update({
+        adm: Ladm
+      })
+  }
+
   return (
     <>
 
-    <Container toggle={config} >
+    <Container toggle={config} adm={adm}>
       <div className='perfil'>
        <img src={arquivos}/>
       </div>
@@ -41,6 +60,7 @@ export default function CardMembros ({ nome, config, id }) {
       </div>
 
       <div className='MaisInfo'>
+        <button className='BtnLider' onClick={Adm} >Adm</button>
         <button className='BtnOnOff' onClick={OnOff}>{config ? 'Desativar' : 'Ativar'}</button>
       </div>
     </Container>

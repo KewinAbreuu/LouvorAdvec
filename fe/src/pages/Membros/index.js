@@ -20,7 +20,8 @@ export default function Membros () {
             meusPosts.push({
               id: item.id,
               Nome: item.data().nome,
-              Config: item.data().config
+              Config: item.data().config,
+              Adm: item.data().adm
             })
           })
           setPosts(meusPosts)
@@ -45,6 +46,7 @@ export default function Membros () {
               <CardMembros key={post.id}
                 nome={post.Nome}
                 config={post.Config}
+                adm={post.Adm}
                 id={post.id}
               />
             )
