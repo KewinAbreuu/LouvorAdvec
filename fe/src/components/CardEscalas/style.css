@@ -28,9 +28,16 @@
   padding: 10px;
   border-radius: 10px;
 }
+
+
 .titulomodal{
   color:#52BA7C;
 }
+
+.titulomodal2{
+  color:#D83434;
+}
+
 .musicasmodal{
   margin-top: 16px;
   margin-bottom: 4px;
@@ -49,7 +56,34 @@
   margin-top: 16px;
 }
 
+.buttonmodal2 {
+  width: 100%;
+  padding: 5px;
+  font-size: large;
+  float: right;
+  cursor: pointer;
+  background: #D83434;
+  border:0;
+  color:#fff;
+  border-radius: 5px;
+  margin-top: 16px;
+}
+
 .buttonmodalOk{
+  padding: 5px;
+  font-size: large;
+  float: right;
+  cursor: pointer;
+  background: #52BA7C;
+  border:0;
+  color:#fff;
+  border-radius: 5px;
+  margin-top: 16px;
+  margin-right: 4px;
+}
+
+.buttonmodalOk2{
+  width: 100%;
   padding: 5px;
   font-size: large;
   float: right;

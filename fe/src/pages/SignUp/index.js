@@ -10,6 +10,8 @@ import { Link } from 'react-router-dom'
 export default function SignUp () {
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
+  const [whats, setWhats] = useState('')
+  const whatsOk = `+55${whats}`
   const [password, setPassword] = useState('')
   const [codAuth, setCodAuth] = useState('')
 
@@ -17,9 +19,9 @@ export default function SignUp () {
 
   function handleSubmit (e) {
     e.preventDefault()
-    if (nome !== '' && email !== '' && password !== '' && codAuth !== '') {
+    if (nome !== '' && email !== '' && password !== '' && whats !== '' && codAuth !== '') {
       if (codAuth === '251225') {
-        signUp(email, password, nome)
+        signUp(email, password, nome, whatsOk)
       } else { alert('Código de autorização INVÁLIDO.') }
     } else { alert('Preencha todos os campos!') }
   }
@@ -31,6 +33,7 @@ export default function SignUp () {
       <form onSubmit={handleSubmit} style={{ width: '100%' }}>
         <Input type='text' placeholder='Nome' onChange={(e) => setNome(e.target.value)}/>
         <Input type='text' placeholder='Email' onChange={(e) => setEmail(e.target.value)}/>
+        <Input type='text' placeholder='Whatsapp: (82)900005544' onChange={(e) => setWhats(e.target.value)}/>
         <Input type='password' placeholder='Senha' onChange={(e) => setPassword(e.target.value)}/>
         <Input type='password' placeholder='Cód. Autorização' onChange={(e) => setCodAuth(e.target.value)}/>
         <button type="submit" className='btnAuth'>{!loadinAuth ? 'Criar' : 'Carregando...'}</button>

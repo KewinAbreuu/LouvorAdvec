@@ -15,6 +15,8 @@ import Liders from '../pages/Liders'
 import Mensagens from '../pages/Mensagens'
 import Membros from '../pages/Membros'
 import Avisos from '../pages/Avisos'
+import Comunicar from '../pages/Comunicar'
+import Indisponibilidade from '../pages/Indisponibilidade'
 
 export default function Routes () {
   return (
@@ -33,6 +35,8 @@ export default function Routes () {
       <Route exact path="/mensagens" component={Mensagens} isPrivate />
       <Route exact path="/membros" component={Membros} isPrivate />
       <Route exact path="/avisos" component={Avisos} isPrivate />
+      <Route exact path="/comunicar" component={Comunicar} isPrivate />
+      <Route exact path="/indisponibilidade" component={Indisponibilidade} isPrivate />
     </Switch>
   )
 }

@@ -86,11 +86,6 @@ export default function AddRepertorio () {
         <h3>Link Cifras/Letras:</h3>
         <Input type='text' icon={titulo} onChange={(e) => setLetra(e.target.value)}/>
        </div>
-        <h1>{titulos}</h1>
-        <h1>{artista}</h1>
-        <h1>{tom}</h1>
-        <h1>{youtube}</h1>
-        <h1>{letra}</h1>
       </Container>
     </>
   )

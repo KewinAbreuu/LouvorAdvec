@@ -97,7 +97,7 @@ export default function Home () {
             </Container>
 
             <Container style={{ marginBottom: '150px' }}>
-              <Card title="Comunicar" icon={comunicado}/>
+              <Card title="Comunicar" icon={comunicado} press='comunicar'/>
               <Card title="Avisos" icon={cam} press='avisos'/>
               <Card title="Aulas" icon={aula}/>
             </Container>

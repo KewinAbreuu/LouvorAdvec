@@ -26,7 +26,7 @@ export default function AuthProvider ({ children }) {
     loadStorage()
   }, [])
 
-  async function signUp (email, password, nome) {
+  async function signUp (email, password, nome, whatsOk) {
     setLoadingAuth(true)
 
     await firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -39,6 +39,7 @@ export default function AuthProvider ({ children }) {
             avatarUrl: null,
             config: 0,
             adm: 0,
+            whatsapp: whatsOk,
             dataCreated: firebase.firestore.FieldValue.serverTimestamp()
           })
           .then(() => {
@@ -46,6 +47,7 @@ export default function AuthProvider ({ children }) {
               uid,
               nome,
               email: value.user.email,
+              whatsapp: whatsOk,
               avatarUrl: null
             }
             const dataId = uid
@@ -76,6 +78,7 @@ export default function AuthProvider ({ children }) {
           uid,
           nome: userProfile.data().nome,
           avatarUrl: userProfile.data().avatarUrl,
+          whatsapp: userProfile.data().whatsapp,
           email: value.user.email
         }
         const dataId = uid
