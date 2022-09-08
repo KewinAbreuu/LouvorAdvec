@@ -25,7 +25,7 @@ export default function Avisos () {
   const configuracao = localStorage.getItem('idUser')
 
   const [titulo, setTitulo] = useState()
-  const [urlImage, setUrlImage] = useState()
+  const [urlImage, setUrlImage] = useState('https://img.freepik.com/vetores-premium/ilustracao-realistica-do-vetor-do-sinal-de-aviso-do-triangulo-amarelo_156780-159.jpg?w=996')
   const [msg, setMsg] = useState()
   const [controlBtn, setControlBtn] = useState(false)
 
@@ -57,37 +57,27 @@ export default function Avisos () {
   }, [])
 
   useEffect(() => {
-    firebase.firestore().collection('avisos')
-      .orderBy('DataCreate', 'desc')
-      .limit(2)
-      .get()
-      .then((collections) => {
-        updateState(collections)
-      })
-  }, [])
+    async function loadPosts () {
+      await firebase.firestore().collection('avisos')
+        .orderBy('DataCreate', 'desc')
+        .limit(6)
+        .onSnapshot((doc) => {
+          const meusPosts = []
 
-  const updateState = (collections) => {
-    const isCollectionEmpty = collections.size === 0
-    if (!isCollectionEmpty) {
-      const colors = collections.docs.map((color) => color.data())
-      const Lastdoc = collections.docs[collections.docs.length - 1]
-      setPosts((Listofcolors) => [...Listofcolors, ...colors])
-      setLastKey(Lastdoc)
-    } else {
-      setEmpty(true)
+          doc.forEach((item) => {
+            meusPosts.push({
+              id: item.id,
+              Nome: item.data().Nome,
+              Mensagem: item.data().Mensagem,
+              ImageUrl: item.data().ImageUrl
+
+            })
+          })
+          setPosts(meusPosts)
+        })
     }
-  }
-
-  const fetchMorePosts = () => {
-    firebase.firestore().collection('avisos')
-      .orderBy('Nome', 'desc')
-      .startAfter(lastKey)
-      .limit(3)
-      .get()
-      .then((collections) => {
-        updateState(collections)
-      })
-  }
+    loadPosts()
+  }, [])
 
   const loadFilter = posts.filter((post) => {
     return (
@@ -154,17 +144,16 @@ export default function Avisos () {
           {loadFilter.map((post) => {
             return (
               <CardAvisos key={Math.random()}
-                id={post.uid}
+                id={post.id}
                 nome={post.Nome}
                 msg={post.Mensagem}
                 img={post.ImageUrl}
               />
             )
           })}
-          <div className='contentBtnMore'>
-            <a onClick={fetchMorePosts} className='btnMore'>Mostrar mais</a>
-          </div>
         </div>
+        <br></br>
+        <br></br>
 
         {adm === 1 &&
          <BtnFlutter action={openModal} icon={add}/>

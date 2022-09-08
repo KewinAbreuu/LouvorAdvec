@@ -77,6 +77,8 @@ export default function Repertorios () {
     )
   })
 
+  console.log(loadFilter)
+
   return (
     <>
       <Container>
