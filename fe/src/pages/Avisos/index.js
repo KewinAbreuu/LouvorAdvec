@@ -154,6 +154,7 @@ export default function Avisos () {
           {loadFilter.map((post) => {
             return (
               <CardAvisos key={Math.random()}
+                id={post.uid}
                 nome={post.Nome}
                 msg={post.Mensagem}
                 img={post.ImageUrl}

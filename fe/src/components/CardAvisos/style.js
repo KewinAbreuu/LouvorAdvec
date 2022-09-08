@@ -57,5 +57,25 @@ export const Container = styled.div`
     }
   }
 
+  .BtnDelete{
+    width: 100%;
+    height: 35px;
+    background: #D83434;
+    border: 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color:#fff;
+    margin-top: 10px;
+
+    :focus{
+      outline: none;
+    }
+    :hover{
+      background-color: #D82525;
+    }
+    :active{
+      background-color: #D82525;
+    }
+  }
 
 `
