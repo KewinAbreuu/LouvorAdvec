@@ -11,6 +11,8 @@ export default createGlobalStyle`
     user-select: none;
     -webkit-tap-highlight-color: transparent;
 
+    /* z-index: 5; */
+
     a{
       text-decoration: none;
     }

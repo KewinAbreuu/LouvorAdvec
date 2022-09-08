@@ -79,6 +79,7 @@ export default function AuthProvider ({ children }) {
           nome: userProfile.data().nome,
           avatarUrl: userProfile.data().avatarUrl,
           whatsapp: userProfile.data().whatsapp,
+          adm: userProfile.data().adm,
           email: value.user.email
         }
         const dataId = uid

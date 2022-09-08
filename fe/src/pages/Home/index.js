@@ -3,10 +3,10 @@ import { AuthContext } from '../../contexts/auth'
 import firebase from '../../services/firebaseConnection'
 
 import { Body, Header, Banner, Welcomme, Container } from './style'
+
 import logo from '../../assets/images/logo.svg'
 import banner from '../../assets/images/banner.png'
 import menu from '../../assets/icons/menu.svg'
-import saida from '../../assets/icons/saida.svg'
 import calendar from '../../assets/icons/calendario.svg'
 import lider from '../../assets/icons/lider.svg'
 import musica from '../../assets/icons/musica.svg'
@@ -17,11 +17,14 @@ import aula from '../../assets/icons/aula.svg'
 import Card from '../../components/Card'
 import BottomBar from '../../components/BottomBar'
 import LoadPerm from '../../components/LoadPerm'
+import Navbar from '../../components/Navbar'
 
 export default function Home () {
   const { signOut, user } = useContext(AuthContext)
   const [posts, setPosts] = useState([])
   const [config, setConfig] = useState([])
+  const [nav, setNav] = useState(false)
+
   useEffect(() => {
     async function loadPosts () {
       await firebase.firestore().collection('config')
@@ -58,19 +61,28 @@ export default function Home () {
     }, 1000)
   }, [])
 
+  function controlNav () {
+    setNav(!nav)
+  }
+
   return (
     <>
+        <Navbar press={controlNav}
+         value={nav}
+         logout={signOut}
+         name={user.nome}
+         email={user.email}
+         avatar={user.avatarUrl}
+         adm={user.adm}
+         />
       <Header>
         <div className='contMenu'>
-          <img src={menu} className="menu"/>
+          <img src={menu} className="menu" onClick={controlNav}/>
           <div className='title'>
              <h1>Louvor Advec</h1>
           </div>
-                                                                    <div className="sair">
-                                                                      <h1>Sair</h1>
-                                                                      <img src={saida} onClick={signOut} style={{ width: 24 }}/>
-                                                                    </div>
-          <img src={logo} onClick={signOut}/>
+
+          <img src={logo}/>
         </div>
       </Header>
       <Body>
