@@ -25,8 +25,8 @@ export default function SignIn () {
     <Container>
       <HeaderLogo/>
       <form onSubmit={handleSubmit} >
-        <Input type='text' placeholder='Email' onChange={(e) => setEmail(e.target.value)}/>
-        <Input type='password' placeholder='Senha' onChange={(e) => setPassword(e.target.value)}/>
+        <Input type='email' placeholder='Email' onChange={(e) => setEmail(e.target.value)} value={email}/>
+        <Input type='password' placeholder='Senha' onChange={(e) => setPassword(e.target.value)} value={password}/>
 
       <button type="submit" className='btnAuth'>{!loadinAuth ? 'Acessar' : 'Carregando...'}</button>
 
