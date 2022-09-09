@@ -31,11 +31,11 @@ export default function SignUp () {
       <HeaderLogo/>
 
       <form onSubmit={handleSubmit} style={{ width: '100%' }}>
-        <Input type='text' placeholder='Nome' onChange={(e) => setNome(e.target.value)} value={nome}/>
-        <Input type='email' placeholder='Email' onChange={(e) => setEmail(e.target.value)} value={email}/>
-        <Input type='number' placeholder='Whatsapp: (82)900005544' onChange={(e) => setWhats(e.target.value)} value={whatsOk}/>
-        <Input type='password' placeholder='Senha' onChange={(e) => setPassword(e.target.value)} value={password}/>
-        <Input type='password' placeholder='Cód. Autorização' onChange={(e) => setCodAuth(e.target.value)} value={codAuth}/>
+        <input type='text' placeholder='Nome' onChange={(e) => setNome(e.target.value)} value={nome}/>
+        <input type='email' placeholder='Email' onChange={(e) => setEmail(e.target.value)} value={email}/>
+        <input type='number' placeholder='Whatsapp: (82)900005544' onChange={(e) => setWhats(e.target.value)} value={whats}/>
+        <input type='password' placeholder='Senha' onChange={(e) => setPassword(e.target.value)} value={password}/>
+        <input type='password' placeholder='Cód. Autorização' onChange={(e) => setCodAuth(e.target.value)} value={codAuth}/>
         <button type="submit" className='btnAuth' onClick={handleSubmit}>{!loadinAuth ? 'Criar' : 'Carregando...'}</button>
       </form>
 
