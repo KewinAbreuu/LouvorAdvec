@@ -21,6 +21,9 @@ export default function SignUp () {
     e.preventDefault()
     if (nome !== '' && email !== '' && password !== '' && whats !== '' && codAuth !== '') {
       if (codAuth === '251225') {
+        if (password.length < 6) {
+          alert('Escolha uma senha com no mínimo 6 digitos')
+        }
         signUp(email, password, nome, whatsOk)
       } else { alert('Código de autorização INVÁLIDO.') }
     } else { alert('Preencha todos os campos!') }
