@@ -17,6 +17,7 @@ export default function Mensagens () {
     async function loadPosts () {
       await firebase.firestore().collection('mensagens')
         .orderBy('DataCompare', 'desc')
+        .limit(10)
         .onSnapshot((doc) => {
           const meusPosts = []
 

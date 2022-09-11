@@ -90,6 +90,8 @@ export default function Escalas () {
           {posts.map((post) => {
             return (
               <CardEscalas key={post.id}
+                adm={adm}
+                id={post.id}
                 titulo={post.Titulo}
                 data={post.Data}
                 dia={post.DiaSemana}

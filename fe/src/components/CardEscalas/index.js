@@ -4,10 +4,11 @@ import './style.css'
 
 import Modal from 'react-modal'
 import { useState } from 'react'
+import firebase from '../../services/firebaseConnection'
 
 Modal.setAppElement('#root')
 
-export default function CardEscalas ({ titulo, data, dia, hora, obs, m1, m2, m3, m4, m5, equipe }) {
+export default function CardEscalas ({ titulo, data, dia, hora, obs, m1, m2, m3, m4, m5, equipe, id, adm }) {
   const [modalIsOpen, setIsOpen] = useState(false)
   const dados = m1.split('+')
   const dados2 = m2.split('+')
@@ -24,6 +25,19 @@ export default function CardEscalas ({ titulo, data, dia, hora, obs, m1, m2, m3,
   function closeModal () {
     setIsOpen(false)
   }
+
+  async function deleteDocument () {
+    await firebase.firestore().collection('escala')
+      .doc(id)
+      .delete()
+      .then(() => {
+        alert('Escala excluída com sucesso!')
+      })
+      .catch((e) => {
+        alert(e)
+      })
+  }
+
   return (
     <>
 
@@ -78,6 +92,9 @@ export default function CardEscalas ({ titulo, data, dia, hora, obs, m1, m2, m3,
           </div>
         </div>
         <button onClick={closeModal} className='buttonmodal'>Fechar</button>
+        {adm === 1 &&
+          <button onClick={deleteDocument} className='buttonmodal' style={{ marginRight: 16, background: '#be6363' }}>Deletar</button>
+          }
       </Modal>
 
     <Container onClick={openModal}>

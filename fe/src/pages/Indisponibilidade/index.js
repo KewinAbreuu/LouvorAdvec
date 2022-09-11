@@ -14,6 +14,7 @@ export default function Indisponibilidade () {
     async function loadPosts () {
       await firebase.firestore().collection('indisponibilidades')
         .orderBy('DataCompare', 'desc')
+        .limit(8)
         .onSnapshot((doc) => {
           const meusPosts = []
 
