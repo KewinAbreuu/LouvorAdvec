@@ -53,15 +53,20 @@ export const Container = styled.div`
 
     h1{
        color:#fff;
+       user-select:none;
     }
     p{
       font-size: 14px;
       color:#cdcdcd;
       margin-bottom: 12px;
+      user-select:none;
+
     }
     h2{
       font-size: 14px;
       color:#52BA7C;
+      user-select:none;
+
     }
 
     .titulo{
@@ -70,6 +75,8 @@ export const Container = styled.div`
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      user-select:none;
+
     }
   }
 
@@ -86,6 +93,8 @@ export const Container = styled.div`
     p{
       color:#fff;
       font-size: 14px;
+      user-select:none;
+
     }
 
   }

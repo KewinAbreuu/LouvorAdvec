@@ -8,6 +8,7 @@ export const Container = styled.div`
   .btnMore{
    color: #6959CD;
    cursor: pointer;
+   user-select:none;
   }
 
   .btnMore:hover{

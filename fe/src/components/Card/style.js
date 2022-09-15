@@ -32,7 +32,8 @@ export const Container = styled.div`
   p{
     font-size: 11px;
     margin-top:16px;
-    color: ${({ theme }) => theme.colors.text.light}
+    color: ${({ theme }) => theme.colors.text.light};
+    user-select:none;
   }
 
   &:hover{

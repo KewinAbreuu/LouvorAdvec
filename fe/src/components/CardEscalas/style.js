@@ -39,6 +39,8 @@ export const Container = styled.div`
       font-weight: 300;
       color: #fff;
       margin-top: 2px;
+      user-select:none;
+
     }
   }
 
@@ -55,15 +57,21 @@ export const Container = styled.div`
 
     h1{
        color:#fff;
+    user-select:none;
+
     }
     p{
       font-size: 14px;
       color:#fff;
       margin-bottom: 12px;
+    user-select:none;
+
     }
     h2{
       font-size: 14px;
       color:#52BA7C;
+    user-select:none;
+
     }
   }
 

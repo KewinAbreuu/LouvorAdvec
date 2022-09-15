@@ -54,15 +54,21 @@ export const Container = styled.div`
 
     h1{
        color:#f00;
+       user-select:none;
+
     }
     p{
       font-size: 14px;
       color:#cdcdcd;
       margin-bottom: 12px;
+      user-select:none;
+
     }
     h2{
       font-size: 14px;
       color:#52BA7C;
+      user-select:none;
+
     }
 
     .titulo{
@@ -87,6 +93,8 @@ export const Container = styled.div`
     p{
       color:#fff;
       font-size: 14px;
+      user-select:none;
+
     }
 
   }

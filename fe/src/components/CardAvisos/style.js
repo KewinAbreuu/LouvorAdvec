@@ -48,18 +48,22 @@ export const Container = styled.div`
 
     h1{
       color: #fff;
+       user-select:none;
+
     }
 
     p{
       color:#cdcdcd;
       margin-top: 4px;
       font-size: 12px;
+      user-select:none;
+
     }
   }
 
   .BtnDelete{
     width: 100%;
-    height: 35px;
+    height: 30px;
     background: #D83434;
     border: 0;
     border-bottom-left-radius: 10px;

@@ -45,6 +45,8 @@ export const Container = styled.div`
 
     h1{
        color:#fff;
+       user-select:none;
+
     }
     p{
       font-size: 14px;

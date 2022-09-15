@@ -40,7 +40,7 @@ export default function Repertorios () {
 
   useEffect(() => {
     firebase.firestore().collection('repertorio')
-      .orderBy('Nome', 'desc')
+      .orderBy('Nome', 'asc')
       .limit(5)
       .get()
       .then((collections) => {
@@ -62,7 +62,7 @@ export default function Repertorios () {
 
   const fetchMorePosts = () => {
     firebase.firestore().collection('repertorio')
-      .orderBy('Nome', 'desc')
+      .orderBy('Nome', 'asc')
       .startAfter(lastKey)
       .limit(3)
       .get()
